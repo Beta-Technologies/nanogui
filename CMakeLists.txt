@@ -342,6 +342,14 @@ add_library(nanogui-obj OBJECT
   include/nanogui/tabheader.h src/tabheader.cpp
   include/nanogui/tabwidget.h src/tabwidget.cpp
   include/nanogui/glcanvas.h src/glcanvas.cpp
+
+  #extended widgets for Beta Tech.
+  include/nanogui/extended/colorbar.h src/extended/colorbar.cpp
+  include/nanogui/extended/led.h src/extended/led.cpp
+  include/nanogui/extended/toggleswitch.h src/extended/toggleswitch.cpp 
+  include/nanogui/extended/motorwheel.h src/extended/motorwheel.cpp
+  include/nanogui/extended/motorquad.h src/extended/motorquad.cpp   
+
   include/nanogui/formhelper.h
   include/nanogui/toolbutton.h
   include/nanogui/opengl.h
@@ -473,6 +481,7 @@ if (NANOGUI_BUILD_PYTHON)
     python/glcanvas.cpp
     python/formhelper.cpp
     python/misc.cpp
+    python/beta.cpp
     python/glutil.cpp
     python/nanovg.cpp
     python/python.h python/py_doc.h

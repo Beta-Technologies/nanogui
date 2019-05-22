@@ -86,6 +86,6 @@ void register_misc(py::module &m) {
         .def("setImages", &ImagePanel::setImages, D(ImagePanel, setImages))
         .def("callback", &ImagePanel::callback, D(ImagePanel, callback))
         .def("setCallback", &ImagePanel::setCallback, D(ImagePanel, setCallback));
-}
+  }
 
 #endif

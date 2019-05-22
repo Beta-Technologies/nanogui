@@ -70,7 +70,7 @@ specified alignments.)doc";
 
 static const char *__doc_nanogui_AdvancedGridLayout_Anchor_align = R"doc(The ``(x, y)`` Alignment.)doc";
 
-static const char *__doc_nanogui_AdvancedGridLayout_Anchor_operator_int = R"doc(Allows for printing out Anchor position, size, and alignment.)doc";
+static const char *__doc_nanogui_AdvancedGridLayout_Anchor_operator_basic_string = R"doc(Allows for printing out Anchor position, size, and alignment.)doc";
 
 static const char *__doc_nanogui_AdvancedGridLayout_Anchor_pos = R"doc(The ``(x, y)`` position.)doc";
 
@@ -668,6 +668,56 @@ The method for the alpha component is **always** ``w()``.
 
 You can and should still use the various convenience methods such as
 ``any()``, ``all()``, ``head<index>()``, etc provided by Eigen.)doc";
+
+static const char *__doc_nanogui_ColorBar = R"doc(Standard widget for visualizing progress.)doc";
+
+static const char *__doc_nanogui_ColorBar_ColorBar = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_color = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_draw = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_load = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_mColors = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_mLevels = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_mValue = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_operator_delete = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_operator_delete_2 = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_operator_delete_3 = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_operator_delete_4 = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_operator_delete_5 = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_operator_delete_6 = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_operator_delete_7 = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_operator_new = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_operator_new_2 = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_operator_new_3 = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_operator_new_4 = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_operator_new_5 = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_preferredSize = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_save = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_setColor = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_setValue = R"doc()doc";
+
+static const char *__doc_nanogui_ColorBar_value = R"doc()doc";
 
 static const char *__doc_nanogui_ColorPicker =
 R"doc(Push button with a popup to tweak a color value. This widget was
@@ -2263,6 +2313,54 @@ Returns:
     The preferred size, accounting for things such as spacing, padding
     for icons, etc.)doc";
 
+static const char *__doc_nanogui_Led = R"doc(A colored LED indicator)doc";
+
+static const char *__doc_nanogui_Led_Led = R"doc()doc";
+
+static const char *__doc_nanogui_Led_color = R"doc()doc";
+
+static const char *__doc_nanogui_Led_draw = R"doc()doc";
+
+static const char *__doc_nanogui_Led_isOn = R"doc()doc";
+
+static const char *__doc_nanogui_Led_load = R"doc()doc";
+
+static const char *__doc_nanogui_Led_mColor = R"doc()doc";
+
+static const char *__doc_nanogui_Led_mIsOn = R"doc()doc";
+
+static const char *__doc_nanogui_Led_operator_delete = R"doc()doc";
+
+static const char *__doc_nanogui_Led_operator_delete_2 = R"doc()doc";
+
+static const char *__doc_nanogui_Led_operator_delete_3 = R"doc()doc";
+
+static const char *__doc_nanogui_Led_operator_delete_4 = R"doc()doc";
+
+static const char *__doc_nanogui_Led_operator_delete_5 = R"doc()doc";
+
+static const char *__doc_nanogui_Led_operator_delete_6 = R"doc()doc";
+
+static const char *__doc_nanogui_Led_operator_delete_7 = R"doc()doc";
+
+static const char *__doc_nanogui_Led_operator_new = R"doc()doc";
+
+static const char *__doc_nanogui_Led_operator_new_2 = R"doc()doc";
+
+static const char *__doc_nanogui_Led_operator_new_3 = R"doc()doc";
+
+static const char *__doc_nanogui_Led_operator_new_4 = R"doc()doc";
+
+static const char *__doc_nanogui_Led_operator_new_5 = R"doc()doc";
+
+static const char *__doc_nanogui_Led_preferredSize = R"doc()doc";
+
+static const char *__doc_nanogui_Led_save = R"doc()doc";
+
+static const char *__doc_nanogui_Led_setColor = R"doc()doc";
+
+static const char *__doc_nanogui_Led_setOn = R"doc()doc";
+
 static const char *__doc_nanogui_MessageDialog = R"doc(Simple "OK" or "Yes/No"-style modal dialogs.)doc";
 
 static const char *__doc_nanogui_MessageDialog_MessageDialog = R"doc()doc";
@@ -2310,6 +2408,92 @@ static const char *__doc_nanogui_MessageDialog_operator_new_4 = R"doc()doc";
 static const char *__doc_nanogui_MessageDialog_operator_new_5 = R"doc()doc";
 
 static const char *__doc_nanogui_MessageDialog_setCallback = R"doc()doc";
+
+static const char *__doc_nanogui_MotorQuad = R"doc(A widget that displays four motor values, one per quadrant)doc";
+
+static const char *__doc_nanogui_MotorQuad_MotorQuad = R"doc()doc";
+
+static const char *__doc_nanogui_MotorQuad_Region = R"doc()doc";
+
+static const char *__doc_nanogui_MotorQuad_Region_Both = R"doc()doc";
+
+static const char *__doc_nanogui_MotorQuad_Region_InnerTriangle = R"doc()doc";
+
+static const char *__doc_nanogui_MotorQuad_Region_None = R"doc()doc";
+
+static const char *__doc_nanogui_MotorQuad_Region_OuterCircle = R"doc()doc";
+
+static const char *__doc_nanogui_MotorQuad_callback = R"doc(Set the change callback)doc";
+
+static const char *__doc_nanogui_MotorQuad_color = R"doc()doc";
+
+static const char *__doc_nanogui_MotorQuad_draw = R"doc()doc";
+
+static const char *__doc_nanogui_MotorQuad_load = R"doc()doc";
+
+static const char *__doc_nanogui_MotorQuad_mCallback = R"doc()doc";
+
+static const char *__doc_nanogui_MotorQuad_mColor = R"doc()doc";
+
+static const char *__doc_nanogui_MotorQuad_mOuterColor = R"doc()doc";
+
+static const char *__doc_nanogui_MotorQuad_mValue = R"doc()doc";
+
+static const char *__doc_nanogui_MotorQuad_mValues = R"doc()doc";
+
+static const char *__doc_nanogui_MotorQuad_preferredSize = R"doc()doc";
+
+static const char *__doc_nanogui_MotorQuad_save = R"doc()doc";
+
+static const char *__doc_nanogui_MotorQuad_setCallback = R"doc()doc";
+
+static const char *__doc_nanogui_MotorQuad_setColor = R"doc()doc";
+
+static const char *__doc_nanogui_MotorQuad_setValue = R"doc()doc";
+
+static const char *__doc_nanogui_MotorQuad_value = R"doc()doc";
+
+static const char *__doc_nanogui_MotorWheel = R"doc(Display motor value as a sized circle)doc";
+
+static const char *__doc_nanogui_MotorWheel_MotorWheel = R"doc()doc";
+
+static const char *__doc_nanogui_MotorWheel_Region = R"doc()doc";
+
+static const char *__doc_nanogui_MotorWheel_Region_Both = R"doc()doc";
+
+static const char *__doc_nanogui_MotorWheel_Region_InnerTriangle = R"doc()doc";
+
+static const char *__doc_nanogui_MotorWheel_Region_None = R"doc()doc";
+
+static const char *__doc_nanogui_MotorWheel_Region_OuterCircle = R"doc()doc";
+
+static const char *__doc_nanogui_MotorWheel_callback = R"doc(Set the change callback)doc";
+
+static const char *__doc_nanogui_MotorWheel_color = R"doc()doc";
+
+static const char *__doc_nanogui_MotorWheel_draw = R"doc()doc";
+
+static const char *__doc_nanogui_MotorWheel_load = R"doc()doc";
+
+static const char *__doc_nanogui_MotorWheel_mCallback = R"doc()doc";
+
+static const char *__doc_nanogui_MotorWheel_mColor = R"doc()doc";
+
+static const char *__doc_nanogui_MotorWheel_mOuterColor = R"doc()doc";
+
+static const char *__doc_nanogui_MotorWheel_mValue = R"doc()doc";
+
+static const char *__doc_nanogui_MotorWheel_preferredSize = R"doc()doc";
+
+static const char *__doc_nanogui_MotorWheel_save = R"doc()doc";
+
+static const char *__doc_nanogui_MotorWheel_setCallback = R"doc()doc";
+
+static const char *__doc_nanogui_MotorWheel_setColor = R"doc()doc";
+
+static const char *__doc_nanogui_MotorWheel_setValue = R"doc()doc";
+
+static const char *__doc_nanogui_MotorWheel_value = R"doc()doc";
 
 static const char *__doc_nanogui_Object = R"doc(Reference counted object base class.)doc";
 
@@ -3014,11 +3198,44 @@ static const char *__doc_nanogui_TabHeader_visibleEnd_2 = R"doc()doc";
 
 static const char *__doc_nanogui_TabWidget =
 R"doc(A wrapper around the widgets TabHeader and StackedWidget which hooks
-the two classes together.)doc";
+the two classes together.
+
+```
+Warning:
+Unlike other widgets, children may **not** be added *directly* to a
+TabWidget.  For example, the following code will raise an exception:
+   // `this` might be say a nanogui::Screen instance
+   Window *window = new Window(this, "Window Title");
+   TabWidget *tabWidget = window->add<TabWidget>();
+   // this label would be a direct child of tabWidget,
+   // which is forbidden, so an exception will be raised
+   new Label(tabWidget, "Some Label");
+Instead, you are expected to be creating tabs and adding widgets to those.
+   // `this` might be say a nanogui::Screen instance
+   Window *window = new Window(this, "Window Title");
+   TabWidget *tabWidget = window->add<TabWidget>();
+   // Create a tab first
+   auto *layer = tabWidget->createTab("Tab Name");
+   // Add children to the created tabs
+   layer->setLayout(new GroupLayout());
+   new Label(layer, "Some Label");
+A slightly more involved example of creating a TabWidget can also be found
+in :ref:`nanogui_example_1` (search for ``tabWidget`` in the file).
+
+```)doc";
 
 static const char *__doc_nanogui_TabWidget_TabWidget = R"doc()doc";
 
 static const char *__doc_nanogui_TabWidget_activeTab = R"doc()doc";
+
+static const char *__doc_nanogui_TabWidget_addChild =
+R"doc(Forcibly prevent mis-use of the class by throwing an exception.
+Children are not to be added directly to the TabWidget, see the class
+level documentation (TabWidget) for an example.
+
+Throws:
+    std::runtime_error An exception is always thrown, as children are
+    not allowed to be added directly to this Widget.)doc";
 
 static const char *__doc_nanogui_TabWidget_addTab =
 R"doc(Inserts a tab at the end of the tabs collection and associates it with
@@ -3092,7 +3309,16 @@ static const char *__doc_nanogui_TabWidget_setCallback =
 R"doc(Sets the callable objects which is invoked when a tab is changed. The
 argument provided to the callback is the index of the new active tab.)doc";
 
-static const char *__doc_nanogui_TabWidget_tab = R"doc()doc";
+static const char *__doc_nanogui_TabWidget_tab =
+R"doc(Returns a ``const`` pointer to the Widget associated with the
+specified label.
+
+Parameter ``label``:
+    The label used to create the tab.
+
+Returns:
+    The Widget associated with this label, or ``nullptr`` if not
+    found.)doc";
 
 static const char *__doc_nanogui_TabWidget_tabCount = R"doc()doc";
 
@@ -3106,7 +3332,36 @@ static const char *__doc_nanogui_TabWidget_tabLabelIndex =
 R"doc(Retrieves the index of a specific tab using its tab label. Returns -1
 if there is no such tab.)doc";
 
-static const char *__doc_nanogui_TabWidget_tab_2 = R"doc()doc";
+static const char *__doc_nanogui_TabWidget_tab_2 =
+R"doc(Returns a pointer to the Widget associated with the specified label.
+
+Parameter ``label``:
+    The label used to create the tab.
+
+Returns:
+    The Widget associated with this label, or ``nullptr`` if not
+    found.)doc";
+
+static const char *__doc_nanogui_TabWidget_tab_3 =
+R"doc(Returns a ``const`` pointer to the Widget associated with the
+specified index.
+
+Parameter ``index``:
+    The current index of the desired Widget.
+
+Returns:
+    The Widget at the specified index, or ``nullptr`` if ``index`` is
+    not a valid index.)doc";
+
+static const char *__doc_nanogui_TabWidget_tab_4 =
+R"doc(Returns a pointer to the Widget associated with the specified index.
+
+Parameter ``index``:
+    The current index of the desired Widget.
+
+Returns:
+    The Widget at the specified index, or ``nullptr`` if ``index`` is
+    not a valid index.)doc";
 
 static const char *__doc_nanogui_TextBox =
 R"doc(Fancy text box with builtin regular expression-based validation.
@@ -3513,6 +3768,62 @@ static const char *__doc_nanogui_Theme_operator_new_3 = R"doc()doc";
 static const char *__doc_nanogui_Theme_operator_new_4 = R"doc()doc";
 
 static const char *__doc_nanogui_Theme_operator_new_5 = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch = R"doc(Two-state check box widget.)doc";
+
+static const char *__doc_nanogui_ToggleSwitch_ToggleSwitch = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_callback = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_checked = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_draw = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_load = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_mCallback = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_mChecked = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_mPushed = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_mouseButtonEvent = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_operator_delete = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_operator_delete_2 = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_operator_delete_3 = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_operator_delete_4 = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_operator_delete_5 = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_operator_delete_6 = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_operator_delete_7 = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_operator_new = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_operator_new_2 = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_operator_new_3 = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_operator_new_4 = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_operator_new_5 = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_preferredSize = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_pushed = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_save = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_setCallback = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_setChecked = R"doc()doc";
+
+static const char *__doc_nanogui_ToggleSwitch_setPushed = R"doc()doc";
 
 static const char *__doc_nanogui_ToolButton = R"doc(Simple radio+toggle button with an icon.)doc";
 

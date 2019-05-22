@@ -49,6 +49,7 @@ extern void register_textbox(py::module &m);
 extern void register_glcanvas(py::module &m);
 extern void register_formhelper(py::module &m);
 extern void register_misc(py::module &m);
+extern void register_beta(py::module &m);
 extern void register_glutil(py::module &m);
 extern void register_nanovg(py::module &m);
 
@@ -246,6 +247,7 @@ PYBIND11_MODULE(nanogui, m) {
     register_glcanvas(m);
     register_formhelper(m);
     register_misc(m);
+    register_beta(m);
     register_glutil(m);
     register_nanovg(m);
 }

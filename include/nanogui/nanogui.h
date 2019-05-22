@@ -39,3 +39,9 @@
 #include <nanogui/tabheader.h>
 #include <nanogui/tabwidget.h>
 #include <nanogui/glcanvas.h>
+
+#include <nanogui/extended/motorwheel.h>
+#include <nanogui/extended/motorquad.h>
+#include <nanogui/extended/led.h>
+#include <nanogui/extended/colorbar.h>
+#include <nanogui/extended/toggleswitch.h>
