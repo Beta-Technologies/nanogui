@@ -119,8 +119,7 @@ void MotorQuad::setColor(const Color &rgb) {
 }
 
 float MotorQuad::value(int idx) const {
-    if (idx < 4)
-        return mValues[idx];
+    return (idx < 4) ? mValues[idx] : 0.0f;
 }
 
 void MotorQuad::setValue(float v, int idx) {

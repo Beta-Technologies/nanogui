@@ -3542,7 +3542,86 @@ static const char *__doc_nanogui_TextBox_value = R"doc()doc";
 
 static const char *__doc_nanogui_Theme = R"doc(Storage class for basic theme-related properties.)doc";
 
+static const char *__doc_nanogui_Theme_GlobalDefaultFonts =
+R"doc(The font face string identifiers that are always loaded / available
+for every Widget.
+
+In the (rare) event that a Widget does not have a Theme instance (this
+only happens when a Widget is constructed without a parent), these
+values are also used in the Widget font getter methods.
+
+The five available class-level string constants are ``Normal``,
+``Bold``, ``Mono``, ``MonoBold``, and ``Icons``.
+
+See also:
+    The *implementation* of nanogui::Widget::font.)doc";
+
+//---------------- had to manually edit these. something wrong with py_doc generator.
+static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Normal = R"doc(Normal Font. This class shall not be instantiated.)doc"; 
+static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Bold = R"doc(Bold Font This class shall not be instantiated.)doc";
+static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Mono = R"doc(Mono Font This class shall not be instantiated.)doc";
+static const char *__doc_nanogui_Theme_GlobalDefaultFonts_MonoBold = R"doc(Mono Bold Font This class shall not be instantiated.)doc";
+static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Icons = R"doc(Icons Font This class shall not be instantiated.)doc";
+//----------------
+
+static const char *__doc_nanogui_Theme_GlobalDefaultFonts_GlobalDefaultFonts = R"doc(This class shall not be instantiated.)doc";
+
+static const char *__doc_nanogui_Theme_GlobalDefaultFonts_GlobalDefaultFonts_2 = R"doc(This class shall not be copied.)doc";
+
+static const char *__doc_nanogui_Theme_GlobalDefaultFonts_GlobalDefaultFonts_3 = R"doc(This class shall not be moved.)doc";
+
 static const char *__doc_nanogui_Theme_Theme = R"doc()doc";
+
+static const char *__doc_nanogui_Theme_defaultCheckBoxIconExtraScale =
+R"doc(For the default theme, ``1.2f`` is used in conjunction with
+``ENTYPO_ICON_CHECK``. If overriding, mCheckBoxIcon, make sure
+mCheckBoxIconExtraScale is set appropriately for the new icon choice.
+
+This method exists for the rare occurence that a Theme instance is not
+available upon construction.
+
+See also:
+    Widget::mIconExtraScale)doc";
+
+static const char *__doc_nanogui_Theme_defaultPopupIconExtraScale =
+R"doc(For the default theme, ``0.8f`` is used in conjunction with
+``ENTYPO_ICON_CHEVRON_{LEFT,RIGHT}``. If overriding,
+mPopupChevronRightIcon and mPopupChevronLeftIcon, make sure
+mPopupIconExtraScale is set appropriately for the new icon choice.
+
+This method exists for the rare occurence that a Theme instance is not
+available upon construction.
+
+```
+Note:
+Observe that there is only one scale variable (instead of one for left and
+right).  This means that you need to choose an icon pair for left / right
+that are the same original size.
+
+```
+
+See also:
+    Widget::mIconExtraScale)doc";
+
+static const char *__doc_nanogui_Theme_defaultTextBoxIconExtraScale =
+R"doc(For the default theme, ``0.8f`` is used in conjunction with
+``ENTYPO_ICON_CHEVRON_{UP,DOWN}``. If overriding, mTextBoxUpIcon and
+mTextBoxDownIcon, make sure mTextBoxIconExtraScale is set
+appropriately for the new icon choice.
+
+This method exists for the rare occurence that a Theme instance is not
+available upon construction.
+
+```
+Note:
+Observe that there is only one scale variable (instead of one for up and
+down).  This means that you need to choose an icon pair for up / down
+that are the same original size.
+
+```
+
+See also:
+    Widget::mIconExtraScale)doc";
 
 static const char *__doc_nanogui_Theme_mBorderDark =
 R"doc(The dark border color (default: intensity=``29``, alpha=``255``; see
@@ -3588,6 +3667,34 @@ intensity=``74``, alpha=``255``; see nanogui::Color::Color(int,int)).)doc";
 
 static const char *__doc_nanogui_Theme_mCheckBoxIcon = R"doc(Icon to use for CheckBox widgets (default: ``ENTYPO_ICON_CHECK``).)doc";
 
+static const char *__doc_nanogui_Theme_mCheckBoxIconExtraScale =
+R"doc(Extra scaling needed for mCheckBoxIcon (default:
+defaultCheckBoxIconExtraScale).)doc";
+
+static const char *__doc_nanogui_Theme_mDefaultBoldFont =
+R"doc(The default bold font face: ``"sans-bold"`` from ``resources/Roboto-
+Bold.ttf``.)doc";
+
+static const char *__doc_nanogui_Theme_mDefaultFont =
+R"doc(The default font face: ``"sans"`` from ``resources/Roboti-
+Regular.ttf``.)doc";
+
+static const char *__doc_nanogui_Theme_mDefaultIconFont = R"doc(The default icon font face: ``"icons"`` from ``resources/entypo.ttf``.)doc";
+
+static const char *__doc_nanogui_Theme_mDefaultMonoBoldFont =
+R"doc(The default monospace bold font: ``"mono-bold"`` from
+``resources/RobotoMono-Bold.ttf``.
+
+Not used directly in NanoGUI, but loaded and available for all
+applications.)doc";
+
+static const char *__doc_nanogui_Theme_mDefaultMonoFont =
+R"doc(The default monospace font: ``"mono"`` from ``resources/RobotoMono-
+Regular.ttf``.
+
+Not used directly in NanoGUI, but loaded and available for all
+applications.)doc";
+
 static const char *__doc_nanogui_Theme_mDisabledTextColor =
 R"doc(The disable dtext color (default: intensity=``255``, alpha=``80``; see
 nanogui::Color::Color(int,int)).)doc";
@@ -3597,16 +3704,34 @@ R"doc(The color of the drop shadow drawn behind widgets (default:
 intensity=``0``, alpha=``128``; see nanogui::Color::Color(int,int)).)doc";
 
 static const char *__doc_nanogui_Theme_mFontBold =
-R"doc(The bold font face (default: ``"sans-bold"`` from
-``resources/roboto_regular.ttf``).)doc";
+R"doc(The font memory identifier loaded for mDefaultBoldFont.
+
+Most applications should not have a need to use this variable. Its
+value should **never** be reassigned.)doc";
 
 static const char *__doc_nanogui_Theme_mFontIcons =
-R"doc(The icon font face (default: ``"icons"`` from
-``resources/entypo.ttf``).)doc";
+R"doc(The font memory identifier loaded for mDefaultIconFont.
+
+Most applications should not have a need to use this variable. Its
+value should **never** be reassigned.)doc";
+
+static const char *__doc_nanogui_Theme_mFontMonoBold =
+R"doc(The font memory identifier loaded for mDefaultMonoBoldFont.
+
+Most applications should not have a need to use this variable. Its
+value should **never** be reassigned.)doc";
+
+static const char *__doc_nanogui_Theme_mFontMonoNormal =
+R"doc(The font memory identifier loaded for mDefaultMonoFont.
+
+Most applications should not have a need to use this variable. Its
+value should **never** be reassigned.)doc";
 
 static const char *__doc_nanogui_Theme_mFontNormal =
-R"doc(The standard font face (default: ``"sans"`` from
-``resources/roboto_regular.ttf``).)doc";
+R"doc(The font memory identifier loaded for mDefaultFont.
+
+Most applications should not have a need to use this variable. Its
+value should **never** be reassigned.)doc";
 
 static const char *__doc_nanogui_Theme_mIconColor = R"doc(The icon color (default: nanogui::Theme::mTextColor).)doc";
 
@@ -3642,6 +3767,10 @@ R"doc(Icon to use for PopupButton widgets opening to the left (default:
 static const char *__doc_nanogui_Theme_mPopupChevronRightIcon =
 R"doc(Icon to use for PopupButton widgets opening to the right (default:
 ``ENTYPO_ICON_CHEVRON_RIGHT``).)doc";
+
+static const char *__doc_nanogui_Theme_mPopupIconExtraScale =
+R"doc(Extra scaling needed for mPopupChevronRightIcon and
+mPopupChevronLeftIcon (default: defaultPopupIconExtraScale).)doc";
 
 static const char *__doc_nanogui_Theme_mStandardFontSize =
 R"doc(The font size for all widgets other than buttons and textboxes
@@ -3681,6 +3810,10 @@ R"doc(Icon to use when a TextBox has a down toggle (e.g. IntBox) (default:
 
 static const char *__doc_nanogui_Theme_mTextBoxFontSize = R"doc(The font size for text boxes (default: ``20``).)doc";
 
+static const char *__doc_nanogui_Theme_mTextBoxIconExtraScale =
+R"doc(Extra scaling needed for mTextBoxUpIcon and mTextBoxDownIcon (default:
+defaultTextBoxIconExtraScale).)doc";
+
 static const char *__doc_nanogui_Theme_mTextBoxUpIcon =
 R"doc(Icon to use when a TextBox has an up toggle (e.g. IntBox) (default:
 ``ENTYPO_ICON_CHEVRON_UP``).)doc";
@@ -3692,6 +3825,38 @@ nanogui::Color::Color(int,int)).)doc";
 static const char *__doc_nanogui_Theme_mTextColorShadow =
 R"doc(The text shadow color (default: intensity=``0``, alpha=``160``; see
 nanogui::Color::Color(int,int)).)doc";
+
+static const char *__doc_nanogui_Theme_mTooltipBackgroundColor =
+R"doc(The background color to use for drawing nanogui::Widget::mTooltip
+(default: intensity=``0``, alpha=``255``; see
+nanogui::Color::Color(int,int)).)doc";
+
+static const char *__doc_nanogui_Theme_mTooltipOpacity =
+R"doc(The maximum value for tooltip background opacity. Default: ``0.8f``.
+
+Lower values result in more transparent tooltips, higher values result
+in less transparent tooltips. This represents an OpenGL ``alpha``
+value, meaning ``1.0f`` (or higher) will result in no transparency.
+
+```
+In the implementation of :func:`Screen::drawWidgets <nanogui::Screen::drawWidgets>`,
+this variable is used as
+float opacity = std::min(
+    widget->theme()->mTooltipOpacity, 2.0f * (static_cast<float>(elapsed) - 0.5f)
+);
+nvgGlobalAlpha(mNVGContext, opacity);
+These mechanics allow for the tooltip to fade-in.  ``elapsed`` contains the
+amount of time the mouse has been hovering over the Widget whose tooltip is being
+displayed.  After subtraction and scaling, when the mouse hover begins the
+calculation will result in smaller values (e.g., starting around ``0.05f``).
+After enough time, ``mTooltipOpacity`` will always be the smaller value, making
+``mTooltipOpacity`` the *maximum* alpha channel value for the tooltip.
+
+```)doc";
+
+static const char *__doc_nanogui_Theme_mTooltipTextColor =
+R"doc(The text color to use for drawing nanogui::Widget::mTooltip (default:
+intensity=``255``, alpha=``255``; see nanogui::Color::Color(int,int)).)doc";
 
 static const char *__doc_nanogui_Theme_mTransparent =
 R"doc(The transparency color (default: intensity=``0``, alpha=``0``; see
@@ -3710,6 +3875,8 @@ intensity=``45``, alpha=``230``; see nanogui::Color::Color(int,int)).)doc";
 static const char *__doc_nanogui_Theme_mWindowFillUnfocused =
 R"doc(The fill color for a Window that is not in focus (default:
 intensity=``43``, alpha=``230``; see nanogui::Color::Color(int,int)).)doc";
+
+static const char *__doc_nanogui_Theme_mWindowFontSize = R"doc(The font size for Window captions (default: ``18``).)doc";
 
 static const char *__doc_nanogui_Theme_mWindowHeaderGradientBot =
 R"doc(The bottom gradient color for Window headings (default:

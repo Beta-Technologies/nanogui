@@ -38,6 +38,7 @@
 #include <nanogui/stackedwidget.h>
 #include <nanogui/tabheader.h>
 #include <nanogui/tabwidget.h>
+#include <nanogui/theme.h>
 #include <nanogui/glcanvas.h>
 
 #include <nanogui/extended/motorwheel.h>

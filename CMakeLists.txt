@@ -473,6 +473,7 @@ if (NANOGUI_BUILD_PYTHON)
     python/constants_entypo.cpp
     python/eigen.cpp
     python/widget.cpp
+    python/theme.cpp
     python/layout.cpp
     python/basics.cpp
     python/button.cpp

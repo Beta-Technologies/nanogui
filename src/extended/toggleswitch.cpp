@@ -70,13 +70,9 @@ void ToggleSwitch::draw(NVGcontext *ctx) {
     nvgFill(ctx);
 
     //foreground rectangle
-
-    int xOffset = mChecked ? mPos.x() : mPos.x() + mSize.y();
     int yOffset = mChecked ? mPos.y() : mPos.y() + mSize.x();
-    nvgBeginPath(ctx);
-    //nvgRoundedRect(ctx, xOffset + 1.0f, mPos.y() + 1.0f, mSize.y() - 2.0f,
-    //               mSize.y() - 2.0f, 3);
 
+    nvgBeginPath(ctx);
     nvgRoundedRect(ctx, mPos.x() + 1.0f, yOffset + 1.0f, mSize.x() - 2.0f,
                    mSize.x() - 2.0f, 3);    
 
