@@ -2519,6 +2519,118 @@ static const char *__doc_nanogui_Orientation_Horizontal = R"doc(Layout expands o
 
 static const char *__doc_nanogui_Orientation_Vertical = R"doc(Layout expands on vertical axis.)doc";
 
+static const char *__doc_nanogui_Plot = R"doc(Simple plot widget with four time series lines.)doc";
+
+static const char *__doc_nanogui_Plot_Plot = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_backgroundColor = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_calcTimeRange = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_caption = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_draw = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_drawAxes = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_drawAxisTicks = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_drawLabels = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_drawPlotline = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_footer = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_foregroundColor = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_header = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_load = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_mBackgroundColor = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_mCaption = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_mFooter = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_mForegroundColor = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_mHeader = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_mMajorTicks = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_mMinorTicks = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_mPlotColors = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_mPlotLabels = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_mTextColor = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_mTimeEnd = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_mTimeStart = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_mValues = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_mXTimeScale = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_mYmax = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_mYmin = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_operator_delete = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_operator_delete_2 = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_operator_delete_3 = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_operator_delete_4 = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_operator_delete_5 = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_operator_delete_6 = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_operator_delete_7 = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_operator_new = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_operator_new_2 = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_operator_new_3 = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_operator_new_4 = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_operator_new_5 = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_preferredSize = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_save = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_setAxisTicks = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_setBackgroundColor = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_setCaption = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_setFooter = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_setForegroundColor = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_setHeader = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_setLabel = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_setTextColor = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_setValues = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_setXTimeScale = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_setYRange = R"doc()doc";
+
+static const char *__doc_nanogui_Plot_textColor = R"doc()doc";
+
 static const char *__doc_nanogui_Popup =
 R"doc(Popup window for combo boxes, popup buttons, nested dialogs etc.
 
@@ -3555,21 +3667,11 @@ The five available class-level string constants are ``Normal``,
 
 See also:
     The *implementation* of nanogui::Widget::font.)doc";
-
-//---------------- had to manually edit these. something wrong with py_doc generator.
-static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Normal = R"doc(Normal Font. This class shall not be instantiated.)doc"; 
-static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Bold = R"doc(Bold Font This class shall not be instantiated.)doc";
-static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Mono = R"doc(Mono Font This class shall not be instantiated.)doc";
-static const char *__doc_nanogui_Theme_GlobalDefaultFonts_MonoBold = R"doc(Mono Bold Font This class shall not be instantiated.)doc";
-static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Icons = R"doc(Icons Font This class shall not be instantiated.)doc";
-//----------------
-
-static const char *__doc_nanogui_Theme_GlobalDefaultFonts_GlobalDefaultFonts = R"doc(This class shall not be instantiated.)doc";
-
-static const char *__doc_nanogui_Theme_GlobalDefaultFonts_GlobalDefaultFonts_2 = R"doc(This class shall not be copied.)doc";
-
-static const char *__doc_nanogui_Theme_GlobalDefaultFonts_GlobalDefaultFonts_3 = R"doc(This class shall not be moved.)doc";
-
+static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Normal = R"doc()doc";
+static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Bold = R"doc()doc";
+static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Mono = R"doc()doc";
+static const char *__doc_nanogui_Theme_GlobalDefaultFonts_MonoBold = R"doc()doc";
+static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Icons = R"doc()doc";
 static const char *__doc_nanogui_Theme_Theme = R"doc()doc";
 
 static const char *__doc_nanogui_Theme_defaultCheckBoxIconExtraScale =

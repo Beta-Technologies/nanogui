@@ -7,6 +7,7 @@ DECLARE_WIDGET(MotorQuad);
 DECLARE_WIDGET(ToggleSwitch);
 DECLARE_WIDGET(ColorBar);
 DECLARE_WIDGET(Led);
+DECLARE_WIDGET(Plot);
 
 void register_beta(py::module &m) {
     py::class_<MotorWheel, Widget, ref<MotorWheel>, PyMotorWheel>(m, "MotorWheel", D(MotorWheel))
@@ -54,8 +55,28 @@ void register_beta(py::module &m) {
         .def("isOn", &Led::isOn, D(Led, isOn))
         .def("setOn", &Led::setOn, D(Led, setOn))
         .def("color", &Led::color, D(Led, color))
-        .def("setColor", &Led::setColor, D(Led, setColor));                         
+        .def("setColor", &Led::setColor, D(Led, setColor));
 
+    py::class_<Plot, Widget, ref<Plot>, PyPlot>(m, "Plot", D(Plot))
+        .def(py::init<Widget *, const std::string &>(), py::arg("parent"),
+             py::arg("caption") = std::string("Plot"), D(Plot, Plot))
+       .def("caption", &Plot::caption, D(Plot, caption))
+        .def("setCaption", &Plot::setCaption, D(Plot, setCaption))
+        .def("header", &Plot::header, D(Plot, header))
+        .def("setHeader", &Plot::setHeader, D(Plot, setHeader))
+        .def("footer", &Plot::footer, D(Plot, footer))
+        .def("setFooter", &Plot::setFooter, D(Plot, setFooter))
+        .def("backgroundColor", &Plot::backgroundColor, D(Plot, backgroundColor))
+        .def("setBackgroundColor", &Plot::setBackgroundColor, D(Plot, setBackgroundColor))
+        .def("foregroundColor", &Plot::foregroundColor, D(Plot, foregroundColor))
+        .def("setForegroundColor", &Plot::setForegroundColor, D(Plot, setForegroundColor))
+        .def("textColor", &Plot::textColor, D(Plot, textColor))
+        .def("setTextColor", &Plot::setTextColor, D(Plot, setTextColor))        
+        .def("setValues", &Plot::setValues, D(Plot, setValues))
+        .def("setLabel", &Plot::setLabel, D(Plot, setLabel))
+        .def("setAxisTicks", &Plot::setAxisTicks, D(Plot, setAxisTicks))
+        .def("setYRange", &Plot::setYRange, D(Plot, setYRange))
+        .def("setXTimeScale", &Plot::setXTimeScale, D(Plot, setXTimeScale)); 
 }
 
 #endif

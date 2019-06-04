@@ -46,3 +46,4 @@
 #include <nanogui/extended/led.h>
 #include <nanogui/extended/colorbar.h>
 #include <nanogui/extended/toggleswitch.h>
+#include <nanogui/extended/plot.h>
