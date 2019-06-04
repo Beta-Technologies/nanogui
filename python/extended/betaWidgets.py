@@ -259,6 +259,8 @@ class MotorPlot(Window):
         self.plot.setLabel("torq-3", Color(100,100,255, 255), 2)
         self.plot.setLabel("torq-4", Color(255,255,255, 255), 3)
 
+        self.plot.setAxisTicks(1000, 100)
+
         self.plot.setYRange(-1.0, 1.0);
 
         for i in range(4):
