@@ -123,19 +123,11 @@ void Plot::calcTimeRange() {
 }
 
 void Plot::drawAxes(NVGcontext *ctx) {
-
-    //todo: the y position of the x-axis should
-    //be centered between yMin, yMax.
-
     nvgBeginPath(ctx);
     nvgMoveTo(ctx, mPos.x(), mPos.y() + mSize.y()/2.0);
     nvgLineTo(ctx, mPos.x() + mSize.x(), mPos.y() + mSize.y()/2.0);
     nvgStrokeColor(ctx, Color(100, 255));
     nvgStroke(ctx); 
-
-    //x axis ticks
-    float mMajorTicks = 0.0f; //1000.0f;
-    float mMinorTicks = 500.0f;
 
     drawAxisTicks(ctx, mMinorTicks, Color(70, 255));    
     drawAxisTicks(ctx, mMajorTicks, Color(130, 130, 130, 255));         
