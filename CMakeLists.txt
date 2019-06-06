@@ -348,6 +348,7 @@ add_library(nanogui-obj OBJECT
   include/nanogui/extended/led.h src/extended/led.cpp
   include/nanogui/extended/toggleswitch.h src/extended/toggleswitch.cpp 
   include/nanogui/extended/motorwheel.h src/extended/motorwheel.cpp
+  include/nanogui/extended/rpy.h src/extended/rpy.cpp
   include/nanogui/extended/motorquad.h src/extended/motorquad.cpp
   include/nanogui/extended/plot.h src/extended/plot.cpp  
 

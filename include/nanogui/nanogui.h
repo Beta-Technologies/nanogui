@@ -47,3 +47,4 @@
 #include <nanogui/extended/colorbar.h>
 #include <nanogui/extended/toggleswitch.h>
 #include <nanogui/extended/plot.h>
+#include <nanogui/extended/rpy.h>

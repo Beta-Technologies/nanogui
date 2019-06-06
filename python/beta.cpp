@@ -8,6 +8,7 @@ DECLARE_WIDGET(ToggleSwitch);
 DECLARE_WIDGET(ColorBar);
 DECLARE_WIDGET(Led);
 DECLARE_WIDGET(Plot);
+DECLARE_WIDGET(RpyWidget);
 
 void register_beta(py::module &m) {
     py::class_<MotorWheel, Widget, ref<MotorWheel>, PyMotorWheel>(m, "MotorWheel", D(MotorWheel))
@@ -76,7 +77,19 @@ void register_beta(py::module &m) {
         .def("setLabel", &Plot::setLabel, D(Plot, setLabel))
         .def("setAxisTicks", &Plot::setAxisTicks, D(Plot, setAxisTicks))
         .def("setYRange", &Plot::setYRange, D(Plot, setYRange))
-        .def("setXTimeScale", &Plot::setXTimeScale, D(Plot, setXTimeScale)); 
+        .def("setXTimeScale", &Plot::setXTimeScale, D(Plot, setXTimeScale));
+
+    py::class_<RpyWidget, Widget, ref<RpyWidget>, PyRpyWidget>(m, "RpyWidget", D(RpyWidget))
+        .def(py::init<Widget *>(), py::arg("parent"), D(RpyWidget, RpyWidget))
+        .def(py::init<Widget *, const Color &>(), py::arg("parent"), py::arg("Color"))
+        .def("mode", &RpyWidget::mode, D(RpyWidget, mode))
+        .def("setMode", &RpyWidget::setMode, D(RpyWidget, setMode))        
+        .def("color", &RpyWidget::color, D(RpyWidget, color))
+        .def("setColor", &RpyWidget::setColor, D(RpyWidget, setColor))
+        .def("angle", &RpyWidget::angle, D(RpyWidget, angle))
+        .def("setAngle", &RpyWidget::setAngle, D(RpyWidget, setAngle))        
+        .def("callback", &RpyWidget::callback, D(RpyWidget, callback))
+        .def("setCallback", &RpyWidget::setCallback, D(RpyWidget, setCallback));         
 }
 
 #endif

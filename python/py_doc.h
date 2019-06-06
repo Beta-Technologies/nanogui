@@ -2818,6 +2818,56 @@ static const char *__doc_nanogui_ProgressBar_setValue = R"doc()doc";
 
 static const char *__doc_nanogui_ProgressBar_value = R"doc()doc";
 
+static const char *__doc_nanogui_RpyWidget = R"doc(Display motor value as a sized circle)doc";
+
+static const char *__doc_nanogui_RpyWidget_Region = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_Region_Both = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_Region_InnerTriangle = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_Region_None = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_Region_OuterCircle = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_RpyWidget = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_angle = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_callback = R"doc(Set the change callback)doc";
+
+static const char *__doc_nanogui_RpyWidget_color = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_mode = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_draw = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_load = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_mAngle = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_mCallback = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_mColor = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_mMode = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_mOuterColor = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_preferredSize = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_save = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_setAngle = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_setCallback = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_setColor = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_setMode = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_Mode = R"doc()doc";
+
 static const char *__doc_nanogui_Screen =
 R"doc(Represents a display surface (i.e. a full-screen or windowed GLFW
 window) and forms the root element of a hierarchy of nanogui widgets.)doc";
@@ -3652,7 +3702,11 @@ static const char *__doc_nanogui_TextBox_updateCursor = R"doc()doc";
 
 static const char *__doc_nanogui_TextBox_value = R"doc()doc";
 
+
+
 static const char *__doc_nanogui_Theme = R"doc(Storage class for basic theme-related properties.)doc";
+
+static const char *__doc_nanogui_Theme_Theme = R"doc(Constructor for Theme object)doc";
 
 static const char *__doc_nanogui_Theme_GlobalDefaultFonts =
 R"doc(The font face string identifiers that are always loaded / available
@@ -3667,12 +3721,12 @@ The five available class-level string constants are ``Normal``,
 
 See also:
     The *implementation* of nanogui::Widget::font.)doc";
+
 static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Normal = R"doc()doc";
 static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Bold = R"doc()doc";
 static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Mono = R"doc()doc";
 static const char *__doc_nanogui_Theme_GlobalDefaultFonts_MonoBold = R"doc()doc";
-static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Icons = R"doc()doc";
-static const char *__doc_nanogui_Theme_Theme = R"doc()doc";
+static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Icons = R"doc()doc";    
 
 static const char *__doc_nanogui_Theme_defaultCheckBoxIconExtraScale =
 R"doc(For the default theme, ``1.2f`` is used in conjunction with
