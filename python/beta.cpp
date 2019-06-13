@@ -11,15 +11,15 @@ DECLARE_WIDGET(Plot);
 DECLARE_WIDGET(RpyWidget);
 
 void register_beta(py::module &m) {
-    py::class_<MotorWheel, Widget, ref<MotorWheel>, PyMotorWheel>(m, "MotorWheel", D(MotorWheel))
-        .def(py::init<Widget *>(), py::arg("parent"), D(MotorWheel, MotorWheel))
-        .def(py::init<Widget *, const Color &>(), py::arg("parent"), py::arg("Color"))
-        .def("color", &MotorWheel::color, D(MotorWheel, color))
-        .def("setColor", &MotorWheel::setColor, D(MotorWheel, setColor))
-        .def("value", &MotorWheel::value, D(MotorWheel, value))
-        .def("setValue", &MotorWheel::setValue, D(MotorWheel, setValue))        
-        .def("callback", &MotorWheel::callback, D(MotorWheel, callback))
-        .def("setCallback", &MotorWheel::setCallback, D(MotorWheel, setCallback));
+	py::class_<MotorWheel, Widget, ref<MotorWheel>, PyMotorWheel>(m, "MotorWheel", D(MotorWheel))
+		.def(py::init<Widget *>(), py::arg("parent"), D(MotorWheel, MotorWheel))
+		.def(py::init<Widget *, const Color &>(), py::arg("parent"), py::arg("Color"))
+		.def("color", &MotorWheel::color, D(MotorWheel, color))
+		.def("setColor", &MotorWheel::setColor, D(MotorWheel, setColor))
+		.def("value", &MotorWheel::value, D(MotorWheel, value))
+		.def("setValue", &MotorWheel::setValue, D(MotorWheel, setValue))
+		.def("callback", &MotorWheel::callback, D(MotorWheel, callback))
+		.def("setCallback", &MotorWheel::setCallback, D(MotorWheel, setCallback));
 
     py::class_<MotorQuad, Widget, ref<MotorQuad>, PyMotorQuad>(m, "MotorQuad", D(MotorQuad))
         .def(py::init<Widget *>(), py::arg("parent"), D(MotorQuad, MotorQuad))

@@ -45,6 +45,7 @@ void RpyWidget::draw(NVGcontext *ctx) {
 
     float r0, r1, rBar, cx, cy;
     float zeroAngle = 0;
+    float angleDirection = 1.0f;
 
     cx = x + w*0.5f;
     cy = y + h*0.5f;
@@ -57,7 +58,8 @@ void RpyWidget::draw(NVGcontext *ctx) {
         rBar = r1 * 0.6;
         if (mMode == YAW)
         {
-            zeroAngle = 90;
+            zeroAngle = 90.0; //pointing straight up.
+            angleDirection = -1.0f;
         }
     }
     else
@@ -94,7 +96,7 @@ void RpyWidget::draw(NVGcontext *ctx) {
 
     // Translate to middle, rotate by angle (ccw)
     nvgTranslate(vg, cx, cy);
-    nvgRotate(vg, -(zeroAngle + mAngle) * DEG2RAD);    
+    nvgRotate(vg, -(zeroAngle + mAngle * angleDirection) * DEG2RAD);
 
     // horizontal bar rotated
     nvgBeginPath(vg);
@@ -124,10 +126,6 @@ void RpyWidget::draw(NVGcontext *ctx) {
         p3(0) = rBar;
         p3(1) = rTri/2.0;
 
-        if (mMode == YAW)
-        {
-            zeroAngle = 90.0; //pointing straight up.
-        }
     }
     else //roll
     {
@@ -154,7 +152,7 @@ void RpyWidget::draw(NVGcontext *ctx) {
     nvgFill(vg);    
    
     //rotate and translate back
-    nvgRotate(vg, (zeroAngle + mAngle) * DEG2RAD);
+    nvgRotate(vg, (zeroAngle + mAngle * angleDirection) * DEG2RAD);
     nvgTranslate(vg, -cx, -cy);         
 
     //circle for the pivot point

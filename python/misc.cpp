@@ -6,6 +6,7 @@ DECLARE_WIDGET(ColorWheel);
 DECLARE_WIDGET(ColorPicker);
 DECLARE_WIDGET(Graph);
 DECLARE_WIDGET(ImageView);
+DECLARE_WIDGET(StaticImageView);
 DECLARE_WIDGET(ImagePanel);
 
 void register_misc(py::module &m) {
@@ -79,6 +80,41 @@ void register_misc(py::module &m) {
         .def("gridVisible", &ImageView::gridVisible, D(ImageView, gridVisible))
         .def("pixelInfoVisible", &ImageView::pixelInfoVisible, D(ImageView, pixelInfoVisible))
         .def("helpersVisible", &ImageView::helpersVisible, D(ImageView, helpersVisible));
+
+	py::class_<StaticImageView, Widget, ref<StaticImageView>, PyStaticImageView>(m, "StaticImageView", D(StaticImageView))
+		.def(py::init<Widget *, GLuint>(), D(StaticImageView, StaticImageView))
+		.def("bindImage", &StaticImageView::bindImage, D(StaticImageView, bindImage))
+		.def("imageShader", &StaticImageView::imageShader, D(StaticImageView, imageShader))
+		.def("scaledImageSize", &StaticImageView::scaledImageSize, D(StaticImageView, scaledImageSize))
+		.def("offset", &StaticImageView::offset, D(StaticImageView, offset))
+		.def("setOffset", &StaticImageView::setOffset, D(StaticImageView, setOffset))
+		.def("scale", &StaticImageView::scale, D(StaticImageView, scale))
+		.def("fixedOffset", &StaticImageView::fixedOffset, D(StaticImageView, fixedOffset))
+		.def("setFixedOffset", &StaticImageView::setFixedOffset, D(StaticImageView, setFixedOffset))
+		.def("fixedScale", &StaticImageView::fixedScale, D(StaticImageView, fixedScale))
+		.def("setFixedScale", &StaticImageView::setFixedScale, D(StaticImageView, setFixedScale))
+		.def("zoomSensitivity", &StaticImageView::zoomSensitivity, D(StaticImageView, zoomSensitivity))
+		.def("setZoomSensitivity", &StaticImageView::setZoomSensitivity, D(StaticImageView, setZoomSensitivity))
+		.def("gridThreshold", &StaticImageView::gridThreshold, D(StaticImageView, gridThreshold))
+		.def("setGridThreshold", &StaticImageView::setGridThreshold, D(StaticImageView, setGridThreshold))
+		.def("pixelInfoThreshold", &StaticImageView::pixelInfoThreshold, D(StaticImageView, pixelInfoThreshold))
+		.def("setPixelInfoThreshold", &StaticImageView::setPixelInfoThreshold, D(StaticImageView, setPixelInfoThreshold))
+		.def("setPixelInfoCallback", &StaticImageView::setPixelInfoCallback, D(StaticImageView, setPixelInfoCallback))
+		.def("pixelInfoCallback", &StaticImageView::pixelInfoCallback, D(StaticImageView, pixelInfoCallback))
+		.def("setFontScaleFactor", &StaticImageView::setFontScaleFactor, D(StaticImageView, setFontScaleFactor))
+		.def("fontScaleFactor", &StaticImageView::fontScaleFactor, D(StaticImageView, fontScaleFactor))
+		.def("imageCoordinateAt", &StaticImageView::imageCoordinateAt, D(StaticImageView, imageCoordinateAt))
+		.def("clampedImageCoordinateAt", &StaticImageView::clampedImageCoordinateAt, D(StaticImageView, clampedImageCoordinateAt))
+		.def("positionForCoordinate", &StaticImageView::positionForCoordinate, D(StaticImageView, positionForCoordinate))
+		.def("setImageCoordinateAt", &StaticImageView::setImageCoordinateAt, D(StaticImageView, setImageCoordinateAt))
+		.def("center", &StaticImageView::center, D(StaticImageView, center))
+		.def("fit", &StaticImageView::fit, D(StaticImageView, fit))
+		.def("setScaleCentered", &StaticImageView::setScaleCentered, D(StaticImageView, setScaleCentered))
+		.def("moveOffset", &StaticImageView::moveOffset, D(StaticImageView, moveOffset))
+		.def("zoom", &StaticImageView::zoom, D(StaticImageView, zoom))
+		.def("gridVisible", &StaticImageView::gridVisible, D(StaticImageView, gridVisible))
+		.def("pixelInfoVisible", &StaticImageView::pixelInfoVisible, D(StaticImageView, pixelInfoVisible))
+		.def("helpersVisible", &StaticImageView::helpersVisible, D(StaticImageView, helpersVisible));
 
     py::class_<ImagePanel, Widget, ref<ImagePanel>, PyImagePanel>(m, "ImagePanel", D(ImagePanel))
         .def(py::init<Widget *>(), py::arg("parent"), D(ImagePanel, ImagePanel))

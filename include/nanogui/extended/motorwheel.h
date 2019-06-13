@@ -31,6 +31,7 @@ public:
     std::function<void(const Color &)> callback() const                  { return mCallback;     }
     void setCallback(const std::function<void(const Color &)> &callback) { mCallback = callback; }
 
+	Vector2f sizeF() const { return mSize.cast<float>(); }
 
     Color color() const;
     void setColor(const Color& color);

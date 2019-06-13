@@ -86,10 +86,10 @@ if __name__ == "__main__":
             y3 = 0.8 * math.sin(x/37.0)
             y4 = 0.45 * math.sin(x/53.0) - 0.45
 
-            ui.addPlotDatum(y1,0)
-            ui.addPlotDatum(y2,1)
-            ui.addPlotDatum(y3,2)
-            ui.addPlotDatum(y4,3)
+            ui.addPlotDatum(y1, 0)
+            ui.addPlotDatum(y2, 1)
+            ui.addPlotDatum(y3, 2)
+            ui.addPlotDatum(y4, 3)
 
         else:
             done = True     

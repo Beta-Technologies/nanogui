@@ -6,6 +6,7 @@ ext/pybind11*.a
 ext_build
 nanogui_resources.*
 build
+winbuild
 CMakeCache.txt
 CMakeFiles
 .ninja_deps
