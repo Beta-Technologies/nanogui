@@ -330,26 +330,20 @@ class BatterySignalPanel(Window):
         # self.signal.setValue(self.signalLevel)
 
 
-class LoggingPanel(Window):
+class TogglePanel(Window):
 
-    def __init__(self, parent):
-        super(LoggingPanel, self).__init__(parent)
-        self.setTitle("Logging")
+    def __init__(self, parent, title, label):
+        super(TogglePanel, self).__init__(parent)
+        self.setTitle(title)
         self.setFixedSize((125, 125))
 
         layout = BoxLayout(Orientation.Vertical, Alignment.Middle, 5, 5)
         layout.setSpacing(10)
         self.setLayout(layout)
 
-        self.toggle_label = Label(self, "Toggle Logging")
+        self.toggle_label = Label(self, label)
 
         self.toggle_logging_switch = ToggleSwitch(self)
-
-    # def update(self):
-    #     self.battery.setValue(self.batteryLevel)
-    #     self.signal.setValue(self.signalLevel)
-
-    # ------ Hover Motors Display Panel - displays a quad arrangement
 
 
 class HoverMotorPanel(Window):
