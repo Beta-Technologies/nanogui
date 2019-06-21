@@ -44,7 +44,7 @@ Plot::~Plot()
 }
 
 Vector2i Plot::preferredSize(NVGcontext *) const {
-    return Vector2i(180, 45);
+    return Vector2i(180, 30);
 }
 
 void Plot::setLabel(const std::string text, const Color& color, int index)

@@ -87,7 +87,7 @@ bool Widget::mouseButtonEvent(const Vector2i &p, int button, bool down, int modi
             return true;
     }
     if (button == GLFW_MOUSE_BUTTON_1 && down && !mFocused)
-        requestFocus();
+    //    requestFocus();
     return false;
 }
 
