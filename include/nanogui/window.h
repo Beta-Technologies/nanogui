@@ -45,6 +45,11 @@ public:
     /// Center the window in the current \ref Screen
     void center();
 
+	/// Return whether or not the widget is currently visible (assuming all parents are visible)
+	bool visible() const { return mVisible; }
+	/// Set whether or not the widget is currently visible (assuming all parents are visible)
+	void setVisible(bool visible) { mVisible = visible; }
+
     /// Draw the window
     virtual void draw(NVGcontext *ctx) override;
     /// Handle window drag events
