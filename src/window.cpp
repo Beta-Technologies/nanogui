@@ -127,8 +127,8 @@ void Window::draw(NVGcontext *ctx) {
 
         nvgFontSize(ctx, 26.0f);
         nvgFontFace(ctx, "sans-bold");
-        //nvgTextAlign(ctx, NVG_ALIGN_CENTER | NVG_ALIGN_MIDDLE);
-		nvgTextAlign(ctx, mAlignment | 16);
+        nvgTextAlign(ctx, NVG_ALIGN_CENTER | NVG_ALIGN_MIDDLE);
+		//nvgTextAlign(ctx, mAlignment | 16);
 
         nvgFontBlur(ctx, 2);
         nvgFillColor(ctx, mTheme->mDropShadow);
