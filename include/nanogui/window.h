@@ -24,7 +24,8 @@ NAMESPACE_BEGIN(nanogui)
 class NANOGUI_EXPORT Window : public Widget {
     friend class Popup;
 public:
-    Window(Widget *parent, const std::string &title = "Untitled");
+
+	Window(Widget *parent, const std::string & title = "Untitled");
 
     /// Return the window title
     const std::string &title() const { return mTitle; }
@@ -62,8 +63,12 @@ public:
     virtual Vector2i preferredSize(NVGcontext *ctx) const override;
     /// Invoke the associated layout generator to properly place child widgets, if any
     virtual void performLayout(NVGcontext *ctx) override;
+	
+	void setHeaderAlign(int alignment) { mAlignment = alignment;}
+
     virtual void save(Serializer &s) const override;
     virtual bool load(Serializer &s) override;
+
 protected:
     /// Internal helper function to maintain nested window position values; overridden in \ref Popup
     virtual void refreshRelativePlacement();
@@ -72,6 +77,7 @@ protected:
     Widget *mButtonPanel;
     bool mModal;
     bool mDrag;
+	int mAlignment;
 public:
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 };

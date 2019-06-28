@@ -4781,6 +4781,8 @@ static const char *__doc_nanogui_Window_setTitle = R"doc(Set the window title)do
 
 static const char *__doc_nanogui_Window_title = R"doc(Return the window title)doc";
 
+static const char *__doc_nanogui_Window_setHeaderAlign = R"doc(Sets the alignment of the window header)doc";
+
 static const char *__doc_nanogui_active = R"doc(Return whether or not a main loop is currently active)doc";
 
 static const char *__doc_nanogui_chdir_to_bundle_parent =

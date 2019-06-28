@@ -27,8 +27,8 @@ Plot::Plot(Widget *parent, const std::string &caption)
       mYmin(-1.0f),
       mYmax(1.0f)
 {
-    mBackgroundColor = Color(20, 128);
-    mForegroundColor = Color(255, 192, 0, 128);
+    mBackgroundColor = Color(13, 19, 25, 255);
+    mForegroundColor = Color(13, 19, 25, 255);
     mTextColor = Color(240, 192);
 
     mPlotColors[0] = Color(200,0,0,255);
@@ -126,11 +126,11 @@ void Plot::drawAxes(NVGcontext *ctx) {
     nvgBeginPath(ctx);
     nvgMoveTo(ctx, mPos.x(), mPos.y() + mSize.y()/2.0);
     nvgLineTo(ctx, mPos.x() + mSize.x(), mPos.y() + mSize.y()/2.0);
-    nvgStrokeColor(ctx, Color(100, 255));
+    nvgStrokeColor(ctx, Color(43, 73, 96, 255));
     nvgStroke(ctx); 
 
-    drawAxisTicks(ctx, mMinorTicks, Color(70, 255));    
-    drawAxisTicks(ctx, mMajorTicks, Color(130, 130, 130, 255));         
+    drawAxisTicks(ctx, mMinorTicks, Color(21, 33, 42, 255));    
+    drawAxisTicks(ctx, mMajorTicks, Color(38, 59, 75, 255));         
 }
 
 void Plot::drawAxisTicks(NVGcontext *ctx, float tick_interval, const Color &tick_color) {

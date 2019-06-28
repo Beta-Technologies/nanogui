@@ -19,7 +19,9 @@
 NAMESPACE_BEGIN(nanogui)
 
 Window::Window(Widget *parent, const std::string &title)
-    : Widget(parent), mTitle(title), mButtonPanel(nullptr), mModal(false), mDrag(false) { }
+	: Widget(parent), mTitle(title), mButtonPanel(nullptr), mModal(false), mDrag(false) {
+		mAlignment = 2;
+}
 
 Vector2i Window::preferredSize(NVGcontext *ctx) const {
     if (mButtonPanel)
@@ -100,8 +102,10 @@ void Window::draw(NVGcontext *ctx) {
             mTheme->mWindowHeaderGradientTop,
             mTheme->mWindowHeaderGradientBot);
 
+		nvgStrokeColor(ctx, mTheme->mWindowHeaderSepBot);
         nvgBeginPath(ctx);
         nvgRoundedRect(ctx, mPos.x(), mPos.y(), mSize.x(), hh, cr);
+		nvgStrokeColor(ctx, mTheme->mWindowHeaderSepBot);
 
         nvgFillPaint(ctx, headerPaint);
         nvgFill(ctx);
@@ -123,7 +127,8 @@ void Window::draw(NVGcontext *ctx) {
 
         nvgFontSize(ctx, 26.0f);
         nvgFontFace(ctx, "sans-bold");
-        nvgTextAlign(ctx, NVG_ALIGN_CENTER | NVG_ALIGN_MIDDLE);
+        //nvgTextAlign(ctx, NVG_ALIGN_CENTER | NVG_ALIGN_MIDDLE);
+		nvgTextAlign(ctx, mAlignment | 16);
 
         nvgFontBlur(ctx, 2);
         nvgFillColor(ctx, mTheme->mDropShadow);
