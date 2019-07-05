@@ -193,10 +193,7 @@ class EcuStickInput(Window):
 
         self.update()
 
-    def set_ecu_vals(self, roll, pitch, yaw, throttle):
-        # self.ecu_roll = int((roll / self.ECU_ROLL_SCALE) * 100)
-        # self.ecu_pitch = int((pitch / self.ECU_PITCH_SCALE) * 100)
-        # self.ecu_yaw = int((yaw / self.ECU_YAW_SCALE) * 100)
+    def set_ecu_vals(self, roll, pitch, yaw, throttle, pusher_throttle):
         self.ecu_roll = roll
         self.ecu_pitch = pitch
         self.ecu_yaw = yaw
