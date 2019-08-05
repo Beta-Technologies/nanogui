@@ -686,8 +686,8 @@ void Screen::updateFocus(Widget *widget) {
     for (auto it = mFocusPath.rbegin(); it != mFocusPath.rend(); ++it)
         (*it)->focusEvent(true);
 
-    if (window)
-        moveWindowToFront((Window *) window);
+    //if (window)
+    //    moveWindowToFront((Window *) window);
 }
 
 void Screen::disposeWindow(Window *window) {
