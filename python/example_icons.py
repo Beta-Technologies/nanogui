@@ -30,15 +30,15 @@ if __name__ == "__main__":
     screen = Screen((width, height), "NanoGUI Icons", False)
     window = Window(screen, "All Icons")
     window.setPosition((0, 0))
-    window.setFixedSize((width, height))
+    window.set_fixed_size((width, height))
 
     # attach a vertical scroll panel
     vscroll = VScrollPanel(window)
-    vscroll.setFixedSize((width, height))
+    vscroll.set_fixed_size((width, height))
 
     # vscroll should only have *ONE* child. this is what `wrapper` is for
     wrapper = Widget(vscroll)
-    wrapper.setFixedSize((width, height))
+    wrapper.set_fixed_size((width, height))
     wrapper.setLayout(GridLayout())  # defaults: 2 columns
 
     # NOTE: don't __dict__ crawl in real code!

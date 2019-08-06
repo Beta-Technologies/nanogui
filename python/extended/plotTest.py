@@ -27,13 +27,13 @@ class AppUI(Screen):
 
         self.plotwin = MotorPlot(self)
         self.plotwin.setTitle("Torque Plot")
-        self.plotwin.setFixedSize((600,150))
+        self.plotwin.set_fixed_size((600, 150))
         self.plotwin.setPosition((20,20))
 
         self.plotdata = [];
         for i in range(4):
             self.plotdata.append([]);
-            self.plotwin.setValues(self.plotdata[i], i)
+            self.plotwin.set_values(self.plotdata[i], i)
 
         # for i in range(100):
         #     x[i] = 0.5 * (0.5 * math.sin(i / 10.0) + 0.5 * math.cos(i / 23.) + 1);            

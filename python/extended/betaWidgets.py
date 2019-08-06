@@ -41,23 +41,23 @@ class ImuSensor(Window):
         # row 1
         Label(self, "Pitch")
         self.pitch_angle = TextBox(self)
-        self.pitch_angle.setValue(str(self.imu_pitch_angle))
+        self.pitch_angle.set_value(str(self.imu_pitch_angle))
         self.pitch_rate = TextBox(self)
-        self.pitch_rate.setValue(str(self.imu_pitch_rate))
+        self.pitch_rate.set_value(str(self.imu_pitch_rate))
 
         # row 2
         Label(self, "Roll")
         self.roll_angle = TextBox(self)
-        self.roll_angle.setValue(str(self.imu_roll_angle))
+        self.roll_angle.set_value(str(self.imu_roll_angle))
         self.roll_rate = TextBox(self)
-        self.roll_rate.setValue(str(self.imu_roll_rate))
+        self.roll_rate.set_value(str(self.imu_roll_rate))
 
         # row 3
         Label(self, "Yaw")
         self.yaw_angle = TextBox(self)
-        self.yaw_angle.setValue(str(self.imu_yaw_angle))
+        self.yaw_angle.set_value(str(self.imu_yaw_angle))
         self.yaw_rate = TextBox(self)
-        self.yaw_rate.setValue(str(self.imu_yaw_rate))
+        self.yaw_rate.set_value(str(self.imu_yaw_rate))
 
     def set_imu_vals(self, roll, pitch, yaw):
         self.imu_roll_angle, self.imu_roll_rate = int(roll[0]), int(roll[1])
@@ -67,12 +67,12 @@ class ImuSensor(Window):
         self.update()
 
     def update(self):
-        self.pitch_angle.setValue(str(self.imu_pitch_angle))
-        self.pitch_rate.setValue(str(self.imu_pitch_rate))
-        self.roll_angle.setValue(str(self.imu_roll_angle))
-        self.roll_rate.setValue(str(self.imu_roll_rate))
-        self.yaw_angle.setValue(str(self.imu_yaw_angle))
-        self.yaw_rate.setValue(str(self.imu_yaw_rate))
+        self.pitch_angle.set_value(str(self.imu_pitch_angle))
+        self.pitch_rate.set_value(str(self.imu_pitch_rate))
+        self.roll_angle.set_value(str(self.imu_roll_angle))
+        self.roll_rate.set_value(str(self.imu_roll_rate))
+        self.yaw_angle.set_value(str(self.imu_yaw_angle))
+        self.yaw_rate.set_value(str(self.imu_yaw_rate))
 
 
 class PIDErrors(Window):
@@ -100,29 +100,29 @@ class PIDErrors(Window):
         # row 1
         Label(self, "Pitch")
         self.pitch_angle = TextBox(self)
-        self.pitch_angle.setValue(str(self.error_pitch_angle))
-        self.pitch_angle.setFixedSize((120, 30))
+        self.pitch_angle.set_value(str(self.error_pitch_angle))
+        self.pitch_angle.set_fixed_size((120, 30))
         self.pitch_rate = TextBox(self)
-        self.pitch_rate.setValue(str(self.error_pitch_rate))
-        self.pitch_rate.setFixedSize((120, 30))
+        self.pitch_rate.set_value(str(self.error_pitch_rate))
+        self.pitch_rate.set_fixed_size((120, 30))
 
         # row 2
         Label(self, "Roll")
         self.roll_angle = TextBox(self)
-        self.roll_angle.setValue(str(self.error_roll_angle))
-        self.roll_angle.setFixedSize((120, 30))
+        self.roll_angle.set_value(str(self.error_roll_angle))
+        self.roll_angle.set_fixed_size((120, 30))
         self.roll_rate = TextBox(self)
-        self.roll_rate.setValue(str(self.error_roll_rate))
-        self.roll_rate.setFixedSize((120, 30))
+        self.roll_rate.set_value(str(self.error_roll_rate))
+        self.roll_rate.set_fixed_size((120, 30))
 
         # row 3
         Label(self, "Yaw")
         self.yaw_angle = TextBox(self)
-        self.yaw_angle.setValue(str(self.error_yaw_angle))
-        self.yaw_angle.setFixedSize((120, 30))
+        self.yaw_angle.set_value(str(self.error_yaw_angle))
+        self.yaw_angle.set_fixed_size((120, 30))
         self.yaw_rate = TextBox(self)
-        self.yaw_rate.setValue(str(self.error_yaw_rate))
-        self.yaw_rate.setFixedSize((120, 30))
+        self.yaw_rate.set_value(str(self.error_yaw_rate))
+        self.yaw_rate.set_fixed_size((120, 30))
 
     def set_pid_error_vals(self, roll, pitch, yaw):
         self.error_roll_angle, self.error_roll_rate = roll[0], roll[1]
@@ -132,12 +132,12 @@ class PIDErrors(Window):
         self.update()
 
     def update(self):
-        self.pitch_angle.setValue(str(round(self.error_pitch_angle, 2)))
-        self.pitch_rate.setValue(str(round(self.error_pitch_rate, 2)))
-        self.roll_angle.setValue(str(round(self.error_roll_angle, 2)))
-        self.roll_rate.setValue(str(round(self.error_roll_rate, 2)))
-        self.yaw_angle.setValue(str(round(self.error_yaw_angle, 2)))
-        self.yaw_rate.setValue(str(round(self.error_yaw_rate, 2)))
+        self.pitch_angle.set_value(str(round(self.error_pitch_angle, 2)))
+        self.pitch_rate.set_value(str(round(self.error_pitch_rate, 2)))
+        self.roll_angle.set_value(str(round(self.error_roll_angle, 2)))
+        self.roll_rate.set_value(str(round(self.error_roll_rate, 2)))
+        self.yaw_angle.set_value(str(round(self.error_yaw_angle, 2)))
+        self.yaw_rate.set_value(str(round(self.error_yaw_rate, 2)))
 
 
 # ---- ECU Stick Input (Pitch, Roll, Yaw rate
@@ -168,7 +168,7 @@ class EcuStickInput(Window):
         self.txtboxPitch = TextBox(panel)
 
         self.pitch_slider = Slider(panel)
-        self.pitch_slider.setValue(0.5)
+        self.pitch_slider.set_value(0.5)
         self.pitch_slider.setFixedWidth(100)
         Label(panel, "")
 
@@ -176,7 +176,7 @@ class EcuStickInput(Window):
         self.txtboxRoll = TextBox(panel)
 
         self.roll_slider = Slider(panel)
-        self.roll_slider.setValue(0.5)
+        self.roll_slider.set_value(0.5)
         self.roll_slider.setFixedWidth(100)
         Label(panel, "")
 
@@ -184,7 +184,7 @@ class EcuStickInput(Window):
         self.txtboxYaw = TextBox(panel)
 
         self.yaw_slider = Slider(panel)
-        self.yaw_slider.setValue(0.5)
+        self.yaw_slider.set_value(0.5)
         self.yaw_slider.setFixedWidth(100)
         Label(panel, "")
 
@@ -201,13 +201,13 @@ class EcuStickInput(Window):
         self.update()
 
     def update(self):
-        self.txtboxPitch.setValue(str(int((self.ecu_pitch / self.ECU_PITCH_SCALE) * 100)))
-        self.pitch_slider.setValue((self.ecu_pitch + self.ECU_PITCH_SCALE) / (self.ECU_PITCH_SCALE * 2))
-        self.txtboxRoll.setValue(str(int((self.ecu_roll / self.ECU_ROLL_SCALE) * 100)))
-        self.roll_slider.setValue((self.ecu_roll + self.ECU_ROLL_SCALE) / (self.ECU_ROLL_SCALE * 2))
-        self.txtboxYaw.setValue(str(int((self.ecu_yaw / self.ECU_YAW_SCALE) * 100)))
-        self.yaw_slider.setValue((self.ecu_yaw + self.ECU_YAW_SCALE) / (self.ECU_YAW_SCALE * 2))
-        self.txtboxThrottle.setValue(str(self.ecu_throttle))
+        self.txtboxPitch.set_value(str(int((self.ecu_pitch / self.ECU_PITCH_SCALE) * 100)))
+        self.pitch_slider.set_value((self.ecu_pitch + self.ECU_PITCH_SCALE) / (self.ECU_PITCH_SCALE * 2))
+        self.txtboxRoll.set_value(str(int((self.ecu_roll / self.ECU_ROLL_SCALE) * 100)))
+        self.roll_slider.set_value((self.ecu_roll + self.ECU_ROLL_SCALE) / (self.ECU_ROLL_SCALE * 2))
+        self.txtboxYaw.set_value(str(int((self.ecu_yaw / self.ECU_YAW_SCALE) * 100)))
+        self.yaw_slider.set_value((self.ecu_yaw + self.ECU_YAW_SCALE) / (self.ECU_YAW_SCALE * 2))
+        self.txtboxThrottle.set_value(str(self.ecu_throttle))
 
 
 # ---- Sensor Fault Display (Triple Sensor Voting)
@@ -290,12 +290,12 @@ class BatterySignalPanel(Window):
         batterylabel_1 = Label(self, "Battery Bus 1")
         self.battery_1 = ColorBar(self)
         self.battery_1.setWidth(200)
-        self.battery_1.setValue(self.batteryLevel_2)
+        self.battery_1.set_value(self.batteryLevel_2)
 
         batterylabel_2 = Label(self, "Battery Bus 2")
         self.battery_2 = ColorBar(self)
         self.battery_2.setWidth(200)
-        self.battery_2.setValue(self.batteryLevel_2)
+        self.battery_2.set_value(self.batteryLevel_2)
 
         # self.signalLabel = Label(self, "Radio Signal " + str(self.signalLevel*100) + "%" )
         # self.signal = ColorBar(self)
@@ -322,8 +322,8 @@ class BatterySignalPanel(Window):
     #     self.update()
 
     def update(self):
-        self.battery_1.setValue(self.batteryLevel_1)
-        self.battery_2.setValue(self.batteryLevel_2)
+        self.battery_1.set_value(self.batteryLevel_1)
+        self.battery_2.set_value(self.batteryLevel_2)
         # self.signal.setValue(self.signalLevel)
 
 
@@ -388,11 +388,11 @@ class HoverMotorPanel(Window):
 
     def update(self):
         for i in range(4):
-            self.motorWidget.setValue(self.motorVal[i] * 0.01, i)
-        self.textTorq[0].setValue(str(round(self.motorVal[1], 2)))
-        self.textTorq[1].setValue(str(round(self.motorVal[0], 2)))
-        self.textTorq[2].setValue(str(round(self.motorVal[2], 2)))
-        self.textTorq[3].setValue(str(round(self.motorVal[3], 2)))
+            self.motorWidget.set_value(self.motorVal[i] * 0.01, i)
+        self.textTorq[0].set_value(str(round(self.motorVal[1], 2)))
+        self.textTorq[1].set_value(str(round(self.motorVal[0], 2)))
+        self.textTorq[2].set_value(str(round(self.motorVal[2], 2)))
+        self.textTorq[3].set_value(str(round(self.motorVal[3], 2)))
 
 
 class PushMotorPanel(Window):
@@ -415,8 +415,8 @@ class PushMotorPanel(Window):
 
     def setValue(self, val):
         self.torque = val
-        self.pushMotor.setValue(self.torque / self.MAX_RPM)
-        self.pushMotorTorque.setValue(str(self.torque))
+        self.pushMotor.set_value(self.torque / self.MAX_RPM)
+        self.pushMotorTorque.set_value(str(self.torque))
 
 
 class AirspeedSensor(Window):
@@ -434,24 +434,24 @@ class AirspeedSensor(Window):
 
         # row 2
         self.airspeed_pressure_display = TextBox(self)
-        self.airspeed_pressure_display.setFixedSize((100, 30))
+        self.airspeed_pressure_display.set_fixed_size((100, 30))
         self.airspeed_pressure_display.setUnits('Pa')
-        self.airspeed_pressure_display.setValue(str(self.airspeed_pressure))
+        self.airspeed_pressure_display.set_value(str(self.airspeed_pressure))
 
         self.airspeed_pressure_bar = ColorBar(self)
         # self.airspeed_pressure_bar.setWidth(50)
-        self.airspeed_pressure_bar.setValue(self.airspeed_pressure)
+        self.airspeed_pressure_bar.set_value(self.airspeed_pressure)
 
     def set_airspeed_vals(self, airspeed_pressure):
         self.airspeed_pressure = airspeed_pressure
         self.update()
 
     def update(self):
-        self.airspeed_pressure_display.setValue(str(round(self.airspeed_pressure, 2)))
+        self.airspeed_pressure_display.set_value(str(round(self.airspeed_pressure, 2)))
         # Normalizes -145 to 145 between 0 and 1
         # self.airspeed_pressure_bar.setValue((self.airspeed_pressure - self.MIN_PRESSURE) / (self.MAX_PRESSURE - self.MIN_PRESSURE))
         # Takes the absolute value of the value and displays it, normalizing 0 to 145 between 0 and 1
-        self.airspeed_pressure_bar.setValue(abs(self.airspeed_pressure) / self.MAX_PRESSURE)
+        self.airspeed_pressure_bar.set_value(abs(self.airspeed_pressure) / self.MAX_PRESSURE)
 
 
 class MotorPlot(Window):
@@ -465,7 +465,7 @@ class MotorPlot(Window):
         self.plot.setHeader("Motor Torque Plot")
         self.plot.setFooter("time")
         self.plot.setForegroundColor(ThemeColors.greenOKColor)
-        self.plot.setFixedSize((600, 120))
+        self.plot.set_fixed_size((600, 120))
         self.plot.setXTimeScale(10)
 
         self.plot.setLabel("torq-1", Color(255, 0, 0, 255), 0)
@@ -486,12 +486,12 @@ class MotorPlot(Window):
 
     def setFixedSize(self, wh):
         print("plot fixed size")
-        super(MotorPlot, self).setFixedSize(wh)
-        self.plot.setFixedSize((wh[0], 0.8 * wh[1]))
+        super(MotorPlot, self).set_fixed_size(wh)
+        self.plot.set_fixed_size((wh[0], 0.8 * wh[1]))
 
     # def setCaption(self, text):
     #     self.plot.setFooter(text)
 
     def update(self):
         for i in range(4):
-            self.plot.setValues(self.data[i], i)
+            self.plot.set_values(self.data[i], i)

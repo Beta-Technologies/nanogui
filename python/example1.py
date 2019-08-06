@@ -143,7 +143,7 @@ class TestApp(Screen):
         vscroll = VScrollPanel(popup)
         imgPanel = ImagePanel(vscroll)
         imgPanel.setImages(icons)
-        popup.setFixedSize((245, 150))
+        popup.set_fixed_size((245, 150))
 
         img_window = Window(self, "Selected image")
         img_window.setPosition((710, 15))
@@ -202,18 +202,18 @@ class TestApp(Screen):
                                   Alignment.Middle, 0, 20))
 
         slider = Slider(panel)
-        slider.setValue(0.5)
+        slider.set_value(0.5)
         slider.setFixedWidth(80)
 
         textBox = TextBox(panel)
-        textBox.setFixedSize((60, 25))
-        textBox.setValue("50")
+        textBox.set_fixed_size((60, 25))
+        textBox.set_value("50")
         textBox.setUnits("%")
         textBox.setFontSize(20)
         textBox.setAlignment(TextBox.Alignment.Right)
 
         def cb(value):
-            textBox.setValue("%i" % int(value * 100))
+            textBox.set_value("%i" % int(value * 100))
         slider.setCallback(cb)
 
         def cb(value):
@@ -241,7 +241,7 @@ class TestApp(Screen):
         values = [0.5 * (0.5 * math.sin(i / 10.0) +
                          0.5 * math.cos(i / 23.0) + 1)
                   for i in range(100)]
-        graph.setValues(values)
+        graph.set_values(values)
         tabWidget.setActiveTab(0)
 
         # Dummy tab used to represent the last tab button.
@@ -262,7 +262,7 @@ class TestApp(Screen):
                 valuesDyn = [0.5 * abs((0.5 * math.sin(i / 10.0 + counter)) +
                                        (0.5 * math.cos(i / 23.0 + 1 + counter)))
                              for i in range(100)]
-                graphDyn.setValues(valuesDyn)
+                graphDyn.set_values(valuesDyn)
                 counter += 1
                 # We must invoke perform layout from the screen instance to keep everything in order.
                 # This is essential when creating tabs dynamically.
@@ -285,8 +285,8 @@ class TestApp(Screen):
         Label(window, "Floating point :", "sans-bold")
         floatBox = TextBox(window)
         floatBox.setEditable(True)
-        floatBox.setFixedSize((100, 20))
-        floatBox.setValue("50")
+        floatBox.set_fixed_size((100, 20))
+        floatBox.set_value("50")
         floatBox.setUnits("GiB")
         floatBox.setDefaultValue("0.0")
         floatBox.setFontSize(16)
@@ -295,8 +295,8 @@ class TestApp(Screen):
         Label(window, "Positive integer :", "sans-bold")
         intBox = IntBox(window)
         intBox.setEditable(True)
-        intBox.setFixedSize((100, 20))
-        intBox.setValue(50)
+        intBox.set_fixed_size((100, 20))
+        intBox.set_value(50)
         intBox.setUnits("Mhz")
         intBox.setDefaultValue("0")
         intBox.setFontSize(16)
@@ -314,11 +314,11 @@ class TestApp(Screen):
         Label(window, "Combo box :", "sans-bold")
         cobo = ComboBox(window, ["Item 1", "Item 2", "Item 3"])
         cobo.setFontSize(16)
-        cobo.setFixedSize((100, 20))
+        cobo.set_fixed_size((100, 20))
 
         Label(window, "Color picker :", "sans-bold");
         cp = ColorPicker(window, Color(255, 120, 0, 255));
-        cp.setFixedSize((100, 20));
+        cp.set_fixed_size((100, 20));
 
         def cp_final_cb(color):
             print(
@@ -359,13 +359,13 @@ class TestApp(Screen):
             b.setBackgroundColor(color)
             b.setTextColor(color.contrastingColor())
             red = int(color.r * 255.0)
-            redIntBox.setValue(red)
+            redIntBox.set_value(red)
             green = int(color.g * 255.0)
-            greenIntBox.setValue(green)
+            greenIntBox.set_value(green)
             blue = int(color.b * 255.0)
-            blueIntBox.setValue(blue)
+            blueIntBox.set_value(blue)
             alpha = int(color.w * 255.0)
-            alphaIntBox.setValue(alpha)
+            alphaIntBox.set_value(alpha)
 
         cp.setCallback(cp_fast_cb)
 
@@ -415,7 +415,7 @@ class TestApp(Screen):
             pass
 
     def draw(self, ctx):
-        self.progress.setValue(math.fmod(time.time() / 10, 1))
+        self.progress.set_value(math.fmod(time.time() / 10, 1))
         super(TestApp, self).draw(ctx)
 
     def drawContents(self):
