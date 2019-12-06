@@ -14,7 +14,7 @@
 
 #include <nanogui/widget.h>
 
-#define MAX_PLOTS 4
+#define MAX_PLOTS 10
 
 NAMESPACE_BEGIN(nanogui)
 
