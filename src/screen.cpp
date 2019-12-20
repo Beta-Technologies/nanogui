@@ -18,6 +18,9 @@
 #include <nanogui/popup.h>
 #include <map>
 #include <iostream>
+#include <stb_image.h>
+
+
 
 #if defined(_WIN32)
 #  ifndef NOMINMAX
@@ -388,6 +391,13 @@ void Screen::setCaption(const std::string &caption) {
         glfwSetWindowTitle(mGLFWWindow, caption.c_str());
         mCaption = caption;
     }
+}
+
+void Screen::setIcon(const std::string &icon) {
+    GLFWimage images[1]; 
+    images[0].pixels = stbi_load(icon.c_str(), &images[0].width, &images[0].height, 0, 4); //rgba channels 
+    glfwSetWindowIcon(mGLFWWindow, 1, images); 
+    stbi_image_free(images[0].pixels); 
 }
 
 void Screen::setSize(const Vector2i &size) {
