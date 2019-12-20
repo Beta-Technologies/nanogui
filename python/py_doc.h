@@ -3228,6 +3228,8 @@ static const char *__doc_nanogui_Screen_setBackground = R"doc(Set the screen's b
 
 static const char *__doc_nanogui_Screen_setCaption = R"doc(Set the window title bar caption)doc";
 
+static const char *__doc_nanogui_Screen_setIcon = R"doc(Set the icon of this screen)doc";
+
 static const char *__doc_nanogui_Screen_setResizeCallback = R"doc()doc";
 
 static const char *__doc_nanogui_Screen_setShutdownGLFWOnDestruct = R"doc()doc";

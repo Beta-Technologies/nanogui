@@ -102,6 +102,7 @@ void register_widget(py::module &m) {
             py::arg("nSamples") = 0, py::arg("glMajor") = 3, py::arg("glMinor") = 3, D(Screen, Screen))
         .def("caption", &Screen::caption, D(Screen, caption))
         .def("setCaption", &Screen::setCaption, D(Screen, setCaption))
+        .def("setIcon", &Screen::setIcon, D(Screen, setIcon))
         .def("background", &Screen::background, D(Screen, background))
         .def("setBackground", &Screen::setBackground, D(Screen, setBackground))
         .def("setVisible", &Screen::setVisible, D(Screen, setVisible))
