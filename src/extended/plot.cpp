@@ -15,6 +15,7 @@
 #include <nanogui/serializer/core.h>
 
 #include <iostream>
+#include <iomanip>
 
 NAMESPACE_BEGIN(nanogui)
 
@@ -122,12 +123,27 @@ void Plot::calcTimeRange() {
     }     
 }
 
+std::string format(double value) {
+    std::stringstream ss;
+    ss << std::fixed << std::setprecision(2) << value;
+    return ss.str();    
+}
+
+
 void Plot::drawAxes(NVGcontext *ctx) {
     nvgBeginPath(ctx);
     nvgMoveTo(ctx, mPos.x(), mPos.y() + mSize.y()/2.0);
     nvgLineTo(ctx, mPos.x() + mSize.x(), mPos.y() + mSize.y()/2.0);
     nvgStrokeColor(ctx, Color(43, 73, 96, 255));
     nvgStroke(ctx); 
+    
+    
+    nvgFontSize(ctx, 14.0f);
+    nvgTextAlign(ctx, NVG_ALIGN_LEFT | NVG_ALIGN_TOP);
+    nvgFillColor(ctx, mTextColor);
+    nvgText(ctx, mPos.x() + 3, mPos.y() + 3, format(mYmax).c_str(), NULL); 
+    nvgText(ctx, mPos.x() + 3, mPos.y() + mSize.y() / 2, format((mYmax + mYmin) / 2.0).c_str(), NULL); 
+    nvgText(ctx, mPos.x() + 3, mPos.y() + mSize.y() - 14, format(mYmin).c_str(), NULL); 
 
     drawAxisTicks(ctx, mMinorTicks, Color(21, 33, 42, 255));    
     drawAxisTicks(ctx, mMajorTicks, Color(38, 59, 75, 255));         
@@ -200,9 +216,9 @@ void Plot::drawLabels(NVGcontext *ctx) {
 
     if (!mCaption.empty()) {
         nvgFontSize(ctx, 14.0f);
-        nvgTextAlign(ctx, NVG_ALIGN_LEFT | NVG_ALIGN_TOP);
+        nvgTextAlign(ctx, NVG_ALIGN_CENTER | NVG_ALIGN_TOP);
         nvgFillColor(ctx, mTextColor);
-        nvgText(ctx, mPos.x() + 3, mPos.y() + 1, mCaption.c_str(), NULL);
+        nvgText(ctx, mPos.x() + mSize.x()/2, mPos.y() + 1, mCaption.c_str(), NULL);
     }
 
     if (!mHeader.empty()) {
@@ -218,6 +234,9 @@ void Plot::drawLabels(NVGcontext *ctx) {
         nvgFillColor(ctx, mTextColor);
         nvgText(ctx, mPos.x() + mSize.x() - 3, mPos.y() + mSize.y() - 1, mFooter.c_str(), NULL);
     }
+
+
+
 
     nvgBeginPath(ctx);
     nvgRect(ctx, mPos.x(), mPos.y(), mSize.x(), mSize.y());

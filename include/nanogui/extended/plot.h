@@ -25,7 +25,7 @@ NAMESPACE_BEGIN(nanogui)
  */
 class NANOGUI_EXPORT Plot : public Widget {
 public:
-    Plot(Widget *parent, const std::string &caption = "Plot");
+    Plot(Widget *parent, const std::string &caption = "");
     virtual ~Plot();
 
     const std::string &caption() const { return mCaption; }
