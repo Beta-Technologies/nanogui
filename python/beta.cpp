@@ -60,7 +60,7 @@ void register_beta(py::module &m) {
 
     py::class_<Plot, Widget, ref<Plot>, PyPlot>(m, "Plot", D(Plot))
         .def(py::init<Widget *, const std::string &>(), py::arg("parent"),
-             py::arg("caption") = std::string("Plot"), D(Plot, Plot))
+             py::arg("caption") = std::string(""), D(Plot, Plot))
        .def("caption", &Plot::caption, D(Plot, caption))
         .def("setCaption", &Plot::setCaption, D(Plot, setCaption))
         .def("header", &Plot::header, D(Plot, header))
