@@ -28,10 +28,6 @@ Plot::Plot(Widget *parent, const std::string &caption)
       mYmin(-1.0f),
       mYmax(1.0f)
 {
-    mBackgroundColor = Color(13, 19, 25, 255);
-    mForegroundColor = Color(13, 19, 25, 255);
-    mTextColor = Color(240, 192);
-
     mPlotColors[0] = Color(200,0,0,255);
     mPlotColors[1] = Color(0,200,0,255);
     mPlotColors[2] = Color(50,50,200,255);
@@ -94,7 +90,7 @@ void Plot::draw(NVGcontext *ctx) {
 
     nvgBeginPath(ctx);
     nvgRect(ctx, mPos.x(), mPos.y(), mSize.x(), mSize.y());
-    nvgFillColor(ctx, mBackgroundColor);
+    nvgFillColor(ctx, mTheme->mPlotBackgroundColor);
     nvgFill(ctx);
 
     //std::cout << "calc range " << std::endl;
@@ -140,7 +136,7 @@ void Plot::drawAxes(NVGcontext *ctx) {
     
     nvgFontSize(ctx, 14.0f);
     nvgTextAlign(ctx, NVG_ALIGN_LEFT | NVG_ALIGN_TOP);
-    nvgFillColor(ctx, mTextColor);
+    nvgFillColor(ctx, mTheme->mPlotTextColor);
     nvgText(ctx, mPos.x() + 3, mPos.y() + 3, format(mYmax).c_str(), NULL); 
     nvgText(ctx, mPos.x() + 3, mPos.y() + mSize.y() / 2, format((mYmax + mYmin) / 2.0).c_str(), NULL); 
     nvgText(ctx, mPos.x() + 3, mPos.y() + mSize.y() - 14, format(mYmin).c_str(), NULL); 
@@ -217,21 +213,21 @@ void Plot::drawLabels(NVGcontext *ctx) {
     if (!mCaption.empty()) {
         nvgFontSize(ctx, 14.0f);
         nvgTextAlign(ctx, NVG_ALIGN_CENTER | NVG_ALIGN_TOP);
-        nvgFillColor(ctx, mTextColor);
+        nvgFillColor(ctx, mTheme->mPlotTextColor);
         nvgText(ctx, mPos.x() + mSize.x()/2, mPos.y() + 1, mCaption.c_str(), NULL);
     }
 
     if (!mHeader.empty()) {
         nvgFontSize(ctx, 18.0f);
         nvgTextAlign(ctx, NVG_ALIGN_RIGHT | NVG_ALIGN_TOP);
-        nvgFillColor(ctx, mTextColor);
+        nvgFillColor(ctx, mTheme->mPlotTextColor);
         nvgText(ctx, mPos.x() + mSize.x() - 3, mPos.y() + 1, mHeader.c_str(), NULL);
     }
 
     if (!mFooter.empty()) {
         nvgFontSize(ctx, 15.0f);
         nvgTextAlign(ctx, NVG_ALIGN_RIGHT | NVG_ALIGN_BOTTOM);
-        nvgFillColor(ctx, mTextColor);
+        nvgFillColor(ctx, mTheme->mPlotTextColor);
         nvgText(ctx, mPos.x() + mSize.x() - 3, mPos.y() + mSize.y() - 1, mFooter.c_str(), NULL);
     }
 
@@ -249,9 +245,9 @@ void Plot::save(Serializer &s) const {
     s.set("caption", mCaption);
     s.set("header", mHeader);
     s.set("footer", mFooter);
-    s.set("backgroundColor", mBackgroundColor);
-    s.set("foregroundColor", mForegroundColor);
-    s.set("textColor", mTextColor);
+    s.set("backgroundColor", mTheme->mPlotBackgroundColor);
+    s.set("foregroundColor", mTheme->mPlotForegroundColor);
+    s.set("textColor", mTheme->mPlotTextColor);
     //s.set("values", mValues);
 }
 
@@ -260,9 +256,9 @@ bool Plot::load(Serializer &s) {
     if (!s.get("caption", mCaption)) return false;
     if (!s.get("header", mHeader)) return false;
     if (!s.get("footer", mFooter)) return false;
-    if (!s.get("backgroundColor", mBackgroundColor)) return false;
-    if (!s.get("foregroundColor", mForegroundColor)) return false;
-    if (!s.get("textColor", mTextColor)) return false;
+    if (!s.get("backgroundColor", mTheme->mPlotBackgroundColor)) return false;
+    if (!s.get("foregroundColor", mTheme->mPlotForegroundColor)) return false;
+    if (!s.get("textColor", mTheme->mPlotTextColor)) return false;
     //if (!s.get("values", mValues)) return false;
     return true;
 }
