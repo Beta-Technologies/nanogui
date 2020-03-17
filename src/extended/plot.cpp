@@ -26,7 +26,11 @@ Plot::Plot(Widget *parent, const std::string &caption)
       mMinorTicks(0), 
       mXTimeScale(1.0f),
       mYmin(-1.0f),
-      mYmax(1.0f)
+      mYmax(1.0f),
+      mTimeStart(0.0f),
+      mTimeEnd(0.0f),
+      mIndexStart(0),
+      mIndexEnd(0)
 {
     mPlotColors[0] = Color(200,0,0,255);
     mPlotColors[1] = Color(0,200,0,255);
@@ -34,6 +38,15 @@ Plot::Plot(Widget *parent, const std::string &caption)
     mPlotColors[3] = Color(200,200,0,255);
 
     mXTimeScale = 10; //ms per pixel
+    
+    for (int i = 0; i < MAX_PLOTS; i++)
+    {
+        mValuesFull[i] = false;
+        mValuesHead[i] = 0;
+        memset(mValues[i], 0, MAX_POINTS_PER_PLOT * sizeof(float));
+    } 
+    
+    
 }
 
 Plot::~Plot()
@@ -59,15 +72,17 @@ void Plot::setAxisTicks(float majorTicks, float minorTicks)
     mMinorTicks = minorTicks;
 }
 
-// Vector2i Plot::preferredSize(NVGcontext *) const {
-//     return Vector2i(180, 45);
-// }
-
-void Plot::setValues(const VectorXf &values, int index){
+void Plot::addValue(const int &index, const float &value)
+{
     if (index >= 0 && index < MAX_PLOTS)
     {
-        //std::cout << "setting values for " << index << std::endl;
-        mValues[index] = values; //forces a copy
+        mValues[index][mValuesHead[index]] = value;
+        mValuesHead[index]++;
+        if (mValuesHead[index] == MAX_POINTS_PER_PLOT)
+        {
+            mValuesHead[index] = 0;
+            mValuesFull[index] = true;
+        }
     }
 }
 
@@ -83,9 +98,6 @@ void Plot::setXTimeScale(float scale)
 }
 
 void Plot::draw(NVGcontext *ctx) {
-
-    //std::cout << "drawing plot widget " << std::endl;
-
     Widget::draw(ctx);
 
     nvgBeginPath(ctx);
@@ -93,30 +105,28 @@ void Plot::draw(NVGcontext *ctx) {
     nvgFillColor(ctx, mTheme->mPlotBackgroundColor);
     nvgFill(ctx);
 
-    //std::cout << "calc range " << std::endl;
     calcTimeRange();
     drawAxes(ctx);
 
-    //std::cout << "plot loop " << std::endl;
     for (int i=0; i<MAX_PLOTS; i++)
     {
-        if (mValues[i].size() > 0)
+        if ((mValuesHead[i] > 0) || mValuesFull[i])
         {
-            //std::cout << "plottng value set: " << i << std::endl;
-            drawPlotline(ctx, mValues[i], mPlotColors[i]) ;       
+            drawPlotline(ctx, i) ;       
         }
     }
     drawLabels(ctx);
 }
 
 void Plot::calcTimeRange() {
-    mTimeStart = 0.0f;
-    mTimeEnd = mValues[0].size() * mXTimeScale;
-    float time_range = mSize.x() * mXTimeScale;
-    if (mTimeEnd > time_range)
+    mIndexEnd = mValuesFull[0] ? MAX_POINTS_PER_PLOT : mValuesHead[0];
+    mTimeEnd = mIndexEnd * mXTimeScale;
+    mIndexStart = 0;
+    if (mIndexEnd > mSize.x())
     {
-        mTimeStart = mTimeEnd - time_range;
+        mIndexStart = mIndexEnd - mSize.x();
     }     
+    mTimeStart = mIndexStart * mXTimeScale;
 }
 
 std::string format(double value) {
@@ -167,7 +177,7 @@ void Plot::drawAxisTicks(NVGcontext *ctx, float tick_interval, const Color &tick
 }
 
 
-void Plot::drawPlotline(NVGcontext *ctx, const VectorXf &data, const Color &line_color) {
+void Plot::drawPlotline(NVGcontext *ctx, const int &index) {
 
     // check the range
     if (mYmax == mYmin)
@@ -180,29 +190,26 @@ void Plot::drawPlotline(NVGcontext *ctx, const VectorXf &data, const Color &line
     nvgMoveTo(ctx, mPos.x(), mPos.y()+mSize.y()/2.0);
 
     //take the values at the end of the array and work back.
-    //std::cout << "draw plot lines with xtimescale : " << mXTimeScale << std::endl;
     size_t start_index = mTimeStart / mXTimeScale;
     size_t end_index = mTimeEnd / mXTimeScale;
 
-    //todo scale the value input based on yMin, yMax.
-
     //we only draw the last N values
-    //std::cout << "lineTo loop : " << start_index << " to " << end_index << std::endl;
-    //std::cout << "data size   : " << data.size() << std::endl;
     for (size_t i = start_index; i < end_index; i++) {
 
+        // get data point out of mValues based on queing position
+        float value = mValuesFull[index] ?
+                        (mValues[index][(mValuesHead[index] + i) % MAX_POINTS_PER_PLOT]) : 
+                        mValues[index][i];
+        
+
         //transform from (mYmax mYmin) to (1 0)
-        float value = (data[i] - mYmin)/(mYmax - mYmin);
+        value = (value - mYmin)/(mYmax - mYmin);
         float vx = mPos.x() + (i - start_index);
         float vy = mPos.y() + (1-value) * mSize.y();
         nvgLineTo(ctx, vx, vy);
     }
 
-    // char sDots[20];
-    // sprintf(sDots, "n: %ld", mValues.size());
-    // mFooter = sDots;
-
-    nvgStrokeColor(ctx, line_color);
+    nvgStrokeColor(ctx, mPlotColors[index]);
     nvgStroke(ctx);
 }
 

@@ -2797,7 +2797,7 @@ static const char *__doc_nanogui_Plot_setLabel = R"doc()doc";
 
 static const char *__doc_nanogui_Plot_setTextColor = R"doc()doc";
 
-static const char *__doc_nanogui_Plot_setValues = R"doc()doc";
+static const char *__doc_nanogui_Plot_addValue = R"doc()doc";
 
 static const char *__doc_nanogui_Plot_setXTimeScale = R"doc()doc";
 
