@@ -6,5 +6,7 @@ setup(
    description='Python bindings for the C++ GUI library nanogui.',
    author='Vincent Moeykens',
    author_email='vincent@beta.team',
-   ext_modules=[Extension('bin', ['libnanogui.so', 'nanogui.cp37-win_amd64.pyd', 'nanogui.dll', 'nanogui.so'])],
+   packages=[''],
+   package_dir={'': '.'},
+   package_data={'bin': ['libnanogui.so', 'nanogui.cp37-win_amd64.pyd', 'nanogui.dll', 'nanogui.so']},
 )
