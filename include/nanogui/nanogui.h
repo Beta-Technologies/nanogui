@@ -49,3 +49,4 @@
 #include <nanogui/extended/toggleswitch.h>
 #include <nanogui/extended/plot.h>
 #include <nanogui/extended/rpy.h>
+#include <nanogui/extended/inputquad.h>

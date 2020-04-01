@@ -2167,179 +2167,61 @@ before and after the scaling.)doc";
 
 static const char *__doc_nanogui_ImageView_zoomSensitivity = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView = R"doc(Widget used to display images.)doc";
+static const char *__doc_nanogui_InputQuad = R"doc(A widget that displays pilot input)doc";
 
-static const char *__doc_nanogui_StaticImageView_StaticImageView = R"doc()doc";
+static const char *__doc_nanogui_InputQuad_InputQuad = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_bindImage = R"doc()doc";
+static const char *__doc_nanogui_InputQuad_RPYAxis = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_center = R"doc(Centers the image without affecting the scaling factor.)doc";
+static const char *__doc_nanogui_InputQuad_RPYAxis_PITCH = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_clampedImageCoordinateAt =
-R"doc(Calculates the image coordinates of the given pixel position on the
-widget. If the position provided corresponds to a coordinate outside
-the range of the image, the coordinates are clamped to edges of the
-image.)doc";
+static const char *__doc_nanogui_InputQuad_RPYAxis_ROLL = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_draw = R"doc()doc";
+static const char *__doc_nanogui_InputQuad_RPYAxis_YAW = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_drawHelpers = R"doc()doc";
+static const char *__doc_nanogui_InputQuad_Region = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_drawImageBorder = R"doc()doc";
+static const char *__doc_nanogui_InputQuad_Region_Both = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_drawPixelGrid = R"doc()doc";
+static const char *__doc_nanogui_InputQuad_Region_InnerTriangle = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_drawPixelInfo = R"doc()doc";
+static const char *__doc_nanogui_InputQuad_Region_None = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_drawWidgetBorder = R"doc()doc";
+static const char *__doc_nanogui_InputQuad_Region_OuterCircle = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_fit = R"doc(Centers and scales the image so that it fits inside the widgets.)doc";
+static const char *__doc_nanogui_InputQuad_callback = R"doc(Set the change callback)doc";
 
-static const char *__doc_nanogui_StaticImageView_fixedOffset = R"doc()doc";
+static const char *__doc_nanogui_InputQuad_color = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_fixedScale = R"doc()doc";
+static const char *__doc_nanogui_InputQuad_draw = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_fontScaleFactor = R"doc()doc";
+static const char *__doc_nanogui_InputQuad_getValue = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_gridThreshold = R"doc()doc";
+static const char *__doc_nanogui_InputQuad_load = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_gridVisible = R"doc(Function indicating whether the grid is currently visible.)doc";
+static const char *__doc_nanogui_InputQuad_mCallback = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_helpersVisible = R"doc(Function indicating whether any of the overlays are visible.)doc";
+static const char *__doc_nanogui_InputQuad_mColor = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_imageCoordinateAt =
-R"doc(Calculates the image coordinates of the given pixel position on the
-widget.)doc";
+static const char *__doc_nanogui_InputQuad_mOuterColor = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_imageShader = R"doc()doc";
+static const char *__doc_nanogui_InputQuad_mPitch = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_imageSize = R"doc()doc";
+static const char *__doc_nanogui_InputQuad_mRoll = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_imageSizeF = R"doc()doc";
+static const char *__doc_nanogui_InputQuad_mValue = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_keyboardCharacterEvent = R"doc()doc";
+static const char *__doc_nanogui_InputQuad_mYaw = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_keyboardEvent = R"doc()doc";
+static const char *__doc_nanogui_InputQuad_preferredSize = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_mFixedOffset = R"doc()doc";
+static const char *__doc_nanogui_InputQuad_save = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_mFixedScale = R"doc()doc";
+static const char *__doc_nanogui_InputQuad_setCallback = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_mFontScaleFactor = R"doc()doc";
+static const char *__doc_nanogui_InputQuad_setColor = R"doc()doc";
 
-static const char *__doc_nanogui_StaticImageView_mGridThreshold = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_mImageID = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_mImageSize = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_mOffset = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_mPixelInfoCallback = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_mPixelInfoThreshold = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_mScale = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_mShader = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_mZoomSensitivity = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_mouseDragEvent = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_moveOffset = R"doc(Moves the offset by the specified amount. Does bound checking.)doc";
-
-static const char *__doc_nanogui_StaticImageView_offset = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_operator_delete = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_operator_delete_2 = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_operator_delete_3 = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_operator_delete_4 = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_operator_delete_5 = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_operator_delete_6 = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_operator_delete_7 = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_operator_new = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_operator_new_2 = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_operator_new_3 = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_operator_new_4 = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_operator_new_5 = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_performLayout = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_pixelInfoCallback = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_pixelInfoThreshold = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_pixelInfoVisible =
-R"doc(Function indicating whether the pixel information is currently
-visible.)doc";
-
-static const char *__doc_nanogui_StaticImageView_positionF = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_positionForCoordinate =
-R"doc(Calculates the position inside the widget for the given image
-coordinate.)doc";
-
-static const char *__doc_nanogui_StaticImageView_preferredSize = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_scale = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_scaledImageSize = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_scaledImageSizeF = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_scrollEvent = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_setFixedOffset = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_setFixedScale = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_setFontScaleFactor = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_setGridThreshold = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_setImageCoordinateAt =
-R"doc(Modifies the internal state of the image viewer widget so that the
-pixel at the provided position on the widget has the specified image
-coordinate. Also clamps the values of offset to the sides of the
-widget.)doc";
-
-static const char *__doc_nanogui_StaticImageView_setOffset = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_setPixelInfoCallback = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_setPixelInfoThreshold = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_setScale = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_setScaleCentered = R"doc(Set the scale while keeping the image centered)doc";
-
-static const char *__doc_nanogui_StaticImageView_setZoomSensitivity = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_sizeF = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_updateImageParameters = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_writePixelInfo = R"doc()doc";
-
-static const char *__doc_nanogui_StaticImageView_zoom =
-R"doc(Changes the scale factor by the provided amount modified by the zoom
-sensitivity member variable. The scaling occurs such that the image
-coordinate under the focused position remains in the same position
-before and after the scaling.)doc";
-
-static const char *__doc_nanogui_StaticImageView_zoomSensitivity = R"doc()doc";
+static const char *__doc_nanogui_InputQuad_setValue = R"doc()doc";
 
 static const char *__doc_nanogui_IntBox =
 R"doc(A specialization of TextBox for representing integral values.
@@ -2665,7 +2547,11 @@ static const char *__doc_nanogui_MotorWheel_setCallback = R"doc()doc";
 
 static const char *__doc_nanogui_MotorWheel_setColor = R"doc()doc";
 
+static const char *__doc_nanogui_MotorWheel_setSize = R"doc()doc";
+
 static const char *__doc_nanogui_MotorWheel_setValue = R"doc()doc";
+
+static const char *__doc_nanogui_MotorWheel_sizeF = R"doc()doc";
 
 static const char *__doc_nanogui_MotorWheel_value = R"doc()doc";
 
@@ -2994,6 +2880,14 @@ static const char *__doc_nanogui_ProgressBar_value = R"doc()doc";
 
 static const char *__doc_nanogui_RpyWidget = R"doc(Display motor value as a sized circle)doc";
 
+static const char *__doc_nanogui_RpyWidget_Mode = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_Mode_PITCH = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_Mode_ROLL = R"doc()doc";
+
+static const char *__doc_nanogui_RpyWidget_Mode_YAW = R"doc()doc";
+
 static const char *__doc_nanogui_RpyWidget_Region = R"doc()doc";
 
 static const char *__doc_nanogui_RpyWidget_Region_Both = R"doc()doc";
@@ -3012,8 +2906,6 @@ static const char *__doc_nanogui_RpyWidget_callback = R"doc(Set the change callb
 
 static const char *__doc_nanogui_RpyWidget_color = R"doc()doc";
 
-static const char *__doc_nanogui_RpyWidget_mode = R"doc()doc";
-
 static const char *__doc_nanogui_RpyWidget_draw = R"doc()doc";
 
 static const char *__doc_nanogui_RpyWidget_load = R"doc()doc";
@@ -3028,6 +2920,8 @@ static const char *__doc_nanogui_RpyWidget_mMode = R"doc()doc";
 
 static const char *__doc_nanogui_RpyWidget_mOuterColor = R"doc()doc";
 
+static const char *__doc_nanogui_RpyWidget_mode = R"doc()doc";
+
 static const char *__doc_nanogui_RpyWidget_preferredSize = R"doc()doc";
 
 static const char *__doc_nanogui_RpyWidget_save = R"doc()doc";
@@ -3039,8 +2933,6 @@ static const char *__doc_nanogui_RpyWidget_setCallback = R"doc()doc";
 static const char *__doc_nanogui_RpyWidget_setColor = R"doc()doc";
 
 static const char *__doc_nanogui_RpyWidget_setMode = R"doc()doc";
-
-static const char *__doc_nanogui_RpyWidget_Mode = R"doc()doc";
 
 static const char *__doc_nanogui_Screen =
 R"doc(Represents a display surface (i.e. a full-screen or windowed GLFW
@@ -3228,7 +3120,7 @@ static const char *__doc_nanogui_Screen_setBackground = R"doc(Set the screen's b
 
 static const char *__doc_nanogui_Screen_setCaption = R"doc(Set the window title bar caption)doc";
 
-static const char *__doc_nanogui_Screen_setIcon = R"doc(Set the icon of this screen)doc";
+static const char *__doc_nanogui_Screen_setIcon = R"doc(Set the window icon)doc";
 
 static const char *__doc_nanogui_Screen_setResizeCallback = R"doc()doc";
 
@@ -3357,6 +3249,180 @@ static const char *__doc_nanogui_StackedWidget_preferredSize = R"doc()doc";
 static const char *__doc_nanogui_StackedWidget_selectedIndex = R"doc()doc";
 
 static const char *__doc_nanogui_StackedWidget_setSelectedIndex = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView = R"doc(Widget used to display images.)doc";
+
+static const char *__doc_nanogui_StaticImageView_StaticImageView = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_bindImage = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_center = R"doc(Centers the image without affecting the scaling factor.)doc";
+
+static const char *__doc_nanogui_StaticImageView_clampedImageCoordinateAt =
+R"doc(Calculates the image coordinates of the given pixel position on the
+widget. If the position provided corresponds to a coordinate outside
+the range of the image, the coordinates are clamped to edges of the
+image.)doc";
+
+static const char *__doc_nanogui_StaticImageView_draw = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_drawHelpers = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_drawImageBorder = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_drawPixelGrid = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_drawPixelInfo = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_drawWidgetBorder = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_fit = R"doc(Centers and scales the image so that it fits inside the widgets.)doc";
+
+static const char *__doc_nanogui_StaticImageView_fixedOffset = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_fixedScale = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_fontScaleFactor = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_gridThreshold = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_gridVisible = R"doc(Function indicating whether the grid is currently visible.)doc";
+
+static const char *__doc_nanogui_StaticImageView_helpersVisible = R"doc(Function indicating whether any of the overlays are visible.)doc";
+
+static const char *__doc_nanogui_StaticImageView_imageCoordinateAt =
+R"doc(Calculates the image coordinates of the given pixel position on the
+widget.)doc";
+
+static const char *__doc_nanogui_StaticImageView_imageShader = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_imageSize = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_imageSizeF = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_keyboardCharacterEvent = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_keyboardEvent = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_mFixedOffset = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_mFixedScale = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_mFontScaleFactor = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_mGridThreshold = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_mImageID = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_mImageSize = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_mOffset = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_mPixelInfoCallback = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_mPixelInfoThreshold = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_mScale = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_mShader = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_mZoomSensitivity = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_mouseDragEvent = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_moveOffset = R"doc(Moves the offset by the specified amount. Does bound checking.)doc";
+
+static const char *__doc_nanogui_StaticImageView_offset = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_operator_delete = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_operator_delete_2 = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_operator_delete_3 = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_operator_delete_4 = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_operator_delete_5 = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_operator_delete_6 = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_operator_delete_7 = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_operator_new = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_operator_new_2 = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_operator_new_3 = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_operator_new_4 = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_operator_new_5 = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_performLayout = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_pixelInfoCallback = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_pixelInfoThreshold = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_pixelInfoVisible =
+R"doc(Function indicating whether the pixel information is currently
+visible.)doc";
+
+static const char *__doc_nanogui_StaticImageView_positionF = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_positionForCoordinate =
+R"doc(Calculates the position inside the widget for the given image
+coordinate.)doc";
+
+static const char *__doc_nanogui_StaticImageView_preferredSize = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_scale = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_scaledImageSize = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_scaledImageSizeF = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_scrollEvent = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_setFixedOffset = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_setFixedScale = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_setFontScaleFactor = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_setGridThreshold = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_setImageCoordinateAt =
+R"doc(Modifies the internal state of the image viewer widget so that the
+pixel at the provided position on the widget has the specified image
+coordinate. Also clamps the values of offset to the sides of the
+widget.)doc";
+
+static const char *__doc_nanogui_StaticImageView_setOffset = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_setPixelInfoCallback = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_setPixelInfoThreshold = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_setScale = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_setScaleCentered = R"doc(Set the scale while keeping the image centered)doc";
+
+static const char *__doc_nanogui_StaticImageView_setZoomSensitivity = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_sizeF = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_updateImageParameters = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_writePixelInfo = R"doc()doc";
+
+static const char *__doc_nanogui_StaticImageView_zoom =
+R"doc(Changes the scale factor by the provided amount modified by the zoom
+sensitivity member variable. The scaling occurs such that the image
+coordinate under the focused position remains in the same position
+before and after the scaling.)doc";
+
+static const char *__doc_nanogui_StaticImageView_zoomSensitivity = R"doc()doc";
 
 static const char *__doc_nanogui_TabHeader = R"doc(A Tab navigable widget.)doc";
 
@@ -3878,11 +3944,7 @@ static const char *__doc_nanogui_TextBox_updateCursor = R"doc()doc";
 
 static const char *__doc_nanogui_TextBox_value = R"doc()doc";
 
-
-
 static const char *__doc_nanogui_Theme = R"doc(Storage class for basic theme-related properties.)doc";
-
-static const char *__doc_nanogui_Theme_Theme = R"doc(Constructor for Theme object)doc";
 
 static const char *__doc_nanogui_Theme_GlobalDefaultFonts =
 R"doc(The font face string identifiers that are always loaded / available
@@ -3898,11 +3960,19 @@ The five available class-level string constants are ``Normal``,
 See also:
     The *implementation* of nanogui::Widget::font.)doc";
 
+static const char *__doc_nanogui_Theme_GlobalDefaultFonts_GlobalDefaultFonts = R"doc(This class shall not be instantiated.)doc";
+
+static const char *__doc_nanogui_Theme_GlobalDefaultFonts_GlobalDefaultFonts_2 = R"doc(This class shall not be copied.)doc";
+
+static const char *__doc_nanogui_Theme_GlobalDefaultFonts_GlobalDefaultFonts_3 = R"doc(This class shall not be moved.)doc";
+
 static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Normal = R"doc()doc";
 static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Bold = R"doc()doc";
 static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Mono = R"doc()doc";
 static const char *__doc_nanogui_Theme_GlobalDefaultFonts_MonoBold = R"doc()doc";
-static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Icons = R"doc()doc";    
+static const char *__doc_nanogui_Theme_GlobalDefaultFonts_Icons = R"doc()doc";
+
+static const char *__doc_nanogui_Theme_Theme = R"doc()doc";
 
 static const char *__doc_nanogui_Theme_defaultCheckBoxIconExtraScale =
 R"doc(For the default theme, ``1.2f`` is used in conjunction with
@@ -4721,6 +4791,8 @@ static const char *__doc_nanogui_Window_draw = R"doc(Draw the window)doc";
 
 static const char *__doc_nanogui_Window_load = R"doc()doc";
 
+static const char *__doc_nanogui_Window_mAlignment = R"doc()doc";
+
 static const char *__doc_nanogui_Window_mButtonPanel = R"doc()doc";
 
 static const char *__doc_nanogui_Window_mDrag = R"doc()doc";
@@ -4777,21 +4849,23 @@ static const char *__doc_nanogui_Window_scrollEvent =
 R"doc(Accept scroll events and propagate them to the widget under the mouse
 cursor)doc";
 
+static const char *__doc_nanogui_Window_setHeaderAlign = R"doc()doc";
+
 static const char *__doc_nanogui_Window_setModal = R"doc(Set whether or not this is a modal dialog)doc";
 
 static const char *__doc_nanogui_Window_setTitle = R"doc(Set the window title)doc";
 
+static const char *__doc_nanogui_Window_setVisible =
+R"doc(Set whether or not the widget is currently visible (assuming all
+parents are visible))doc";
+
 static const char *__doc_nanogui_Window_title = R"doc(Return the window title)doc";
 
-static const char *__doc_nanogui_Window_setHeaderAlign = R"doc(Sets the alignment of the window header)doc";
+static const char *__doc_nanogui_Window_visible =
+R"doc(Return whether or not the widget is currently visible (assuming all
+parents are visible))doc";
 
 static const char *__doc_nanogui_active = R"doc(Return whether or not a main loop is currently active)doc";
-
-static const char *__doc_nanogui_chdir_to_bundle_parent =
-R"doc(Move to the application bundle's parent directory
-
-This is function is convenient when deploying .app bundles on OSX. It
-adjusts the file path to the parent directory containing the bundle.)doc";
 
 static const char *__doc_nanogui_detail_FormWidget = R"doc(A specialization for adding a CheckBox to a FormHelper.)doc";
 

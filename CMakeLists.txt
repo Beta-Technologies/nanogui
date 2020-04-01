@@ -352,6 +352,7 @@ add_library(nanogui-obj OBJECT
   include/nanogui/extended/rpy.h src/extended/rpy.cpp
   include/nanogui/extended/motorquad.h src/extended/motorquad.cpp
   include/nanogui/extended/plot.h src/extended/plot.cpp  
+  include/nanogui/extended/inputquad.h src/extended/inputquad.cpp
 
   include/nanogui/formhelper.h
   include/nanogui/toolbutton.h
