@@ -14,7 +14,8 @@
 
 #include <nanogui/widget.h>
 
-#define MAX_PLOTS 10
+#define MAX_PLOTS (10)
+#define MAX_POINTS_PER_PLOT (1000)
 
 NAMESPACE_BEGIN(nanogui)
 
@@ -58,21 +59,24 @@ public:
 
     void setYRange(float min, float max);
     void setXTimeScale(float scale);
-    void setValues(const VectorXf &values, int index);
+    void addValue(const int &index, const float &value);
 
 
 protected:
     void calcTimeRange();
     void drawAxes(NVGcontext *ctx);   
     void drawAxisTicks(NVGcontext *ctx, float tick_interval, const Color &tick_color);
-    void drawPlotline(NVGcontext *ctx, const VectorXf &data, const Color &line_color);
+    void drawPlotline(NVGcontext *ctx, const int &index);
     void drawLabels(NVGcontext *ctx);
 
 protected:
     std::string mCaption, mHeader, mFooter;
     Color mBackgroundColor, mForegroundColor, mTextColor;
 
-    VectorXf mValues[MAX_PLOTS];
+    float mValues[MAX_PLOTS][MAX_POINTS_PER_PLOT];
+    int mValuesHead[MAX_PLOTS];
+    bool mValuesFull[MAX_PLOTS];
+    
     Color mPlotColors[MAX_PLOTS];
     std::string mPlotLabels[MAX_PLOTS];
 
@@ -84,6 +88,8 @@ protected:
 
     float mTimeStart;
     float mTimeEnd;
+    int mIndexStart;
+    int mIndexEnd;
 
 public:
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW

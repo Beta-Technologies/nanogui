@@ -2683,7 +2683,7 @@ static const char *__doc_nanogui_Plot_setLabel = R"doc()doc";
 
 static const char *__doc_nanogui_Plot_setTextColor = R"doc()doc";
 
-static const char *__doc_nanogui_Plot_setValues = R"doc()doc";
+static const char *__doc_nanogui_Plot_addValue = R"doc()doc";
 
 static const char *__doc_nanogui_Plot_setXTimeScale = R"doc()doc";
 
@@ -5324,6 +5324,16 @@ defined in :ref:`file_nanogui_entypo.h`.
 
 Parameter ``c``:
     The UTF32 character to be converted.)doc";
+
+/* Beta Custom */
+static const char *__doc_nanogui_Theme_mPlotBackgroundColor =
+        R"doc(Set the color of a plot background.)doc";
+
+static const char *__doc_nanogui_Theme_mPlotForegroundColor =
+        R"doc(Set the color of a plot foreground.)doc";
+
+static const char *__doc_nanogui_Theme_mPlotTextColor =
+        R"doc(Set the color of plot text.)doc";
 
 #if defined(__GNUG__)
 #pragma GCC diagnostic pop
