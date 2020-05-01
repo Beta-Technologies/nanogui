@@ -6,8 +6,8 @@ setup(
    description='Python bindings for the C++ GUI library nanogui.',
    author='Vincent Moeykens',
    author_email='vincent@beta.team',
-   packages=['nanogui'],
-   package_dir={'nanogui': 'bin'},
+   packages=['nanogui', 'libnanogui'],
+   package_dir={'nanogui': 'bin', 'libnanogui': 'bin'},
    package_data={'nanogui': ['nanogui.cp37-win_amd64.pyd', 'nanogui.dll', 'nanogui.so'],
                  'libnanogui': ['libnanogui.so']},
 )
