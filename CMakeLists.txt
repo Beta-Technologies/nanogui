@@ -494,9 +494,23 @@ if (NANOGUI_BUILD_PYTHON)
   add_library(nanogui-python SHARED $<TARGET_OBJECTS:nanogui-python-obj>)
   set_property(TARGET nanogui-python-obj PROPERTY POSITION_INDEPENDENT_CODE ON)
   set_target_properties(nanogui-python PROPERTIES OUTPUT_NAME "nanogui")
-  target_link_libraries(nanogui-python nanogui ${NANOGUI_EXTRA_LIBS})
+  target_link_libraries(nanogui-python PRIVATE nanogui ${NANOGUI_EXTRA_LIBS})
 
-  # Quench warnings on GCC
+  # Attempt to link so both shared object files can be installed at the the same time
+  set_target_properties(nanogui-python PROPERTIES SKIP_BUILD_RPATH FALSE)
+
+  # If building with setuptools, CMake will not be performing the install
+  set_target_properties(nanogui-python PROPERTIES BUILD_WITH_INSTALL_RPATH TRUE)
+  if(UNIX AND NOT APPLE)
+    set_target_properties(nanogui-python PROPERTIES INSTALL_RPATH "$ORIGIN/")
+  elseif(APPLE)
+    set_target_properties(nanogui-python PROPERTIES INSTALL_RPATH "@loader_path/")
+  endif()
+
+  set_target_properties(nanogui-python PROPERTIES INSTALL_RPATH_USE_LINK_PATH TRUE)
+
+
+# Quench warnings on GCChttps://www.uvm.edu/cnhs/rms/profiles/patrick_malone_medpatrick_malone_med
   if (CMAKE_COMPILER_IS_GNUCC)
     set_property(TARGET nanogui-python-obj APPEND PROPERTY COMPILE_OPTIONS "-Wno-unused-variable")
   endif()
