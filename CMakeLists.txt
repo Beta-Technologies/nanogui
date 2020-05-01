@@ -535,7 +535,7 @@ if (NANOGUI_BUILD_PYTHON)
     # Strip unnecessary sections of the binary on Linux/Mac OS
     if(APPLE)
       set_target_properties(nanogui-python PROPERTIES MACOSX_RPATH ".")
-      set_target_properties(nanogui-python PROPERTIES LINK_FLAGS "-undefined dynamic_lookup ")
+#      set_target_properties(nanogui-python PROPERTIES LINK_FLAGS "-undefined dynamic_lookup ")
 
       if (NOT ${U_CMAKE_BUILD_TYPE} MATCHES DEB)
         add_custom_command(TARGET nanogui-python POST_BUILD COMMAND strip -u -r $<TARGET_FILE:nanogui-python>)
