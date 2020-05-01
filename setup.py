@@ -9,5 +9,5 @@ setup(
    packages=['nanogui'],
    package_dir={'nanogui': 'bin'},
    package_data={'nanogui': ['nanogui.cp37-win_amd64.pyd', 'nanogui.dll', 'nanogui.so']},
-   data_files=[('nanogui', ['bin/libnanogui.so', 'bm/b2.gif']),]
+   data_files=[('nanogui', ['bin/libnanogui.so',]),]
 )
