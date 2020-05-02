@@ -519,8 +519,27 @@ if (NANOGUI_BUILD_PYTHON)
     set_target_properties(nanogui-python PROPERTIES RUNTIME_OUTPUT_DIRECTORY_MINSIZEREL "MinSizeRel/python")
     set_target_properties(nanogui-python PROPERTIES RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO "RelWithDebInfo/python")
 
-    # Link against the Python shared library
-    target_link_libraries(nanogui-python ${PYTHON_LIBRARY})
+#  ---------------------- ADDED ---------------------------------
+    set_target_properties(nanogui-python PROPERTIES SKIP_BUILD_RPATH FALSE)
+
+    # If building with setuptools, CMake will not be performing the install
+    set_target_properties(nanogui-python PROPERTIES BUILD_WITH_INSTALL_RPATH TRUE)
+
+    target_link_libraries(nanogui-python PRIVATE ${PYTHON_LIBRARY})
+
+    if(UNIX AND NOT APPLE)
+      set_target_properties(nanogui-python PROPERTIES INSTALL_RPATH "$ORIGIN/../")
+    elseif(APPLE)
+      set_target_properties(nanogui-python PROPERTIES INSTALL_RPATH "@loader_path/../")
+    endif()
+
+    set_target_properties(nanogui-python PROPERTIES INSTALL_RPATH_USE_LINK_PATH TRUE)
+
+    #  -------------------- END ADDED -------------------------------
+
+# Link against the Python shared library
+#    target_link_libraries(nanogui-python ${PYTHON_LIBRARY})
+
 
     if (MSVC)
       # Optimize for size, /bigobj is needed for due to the heavy template metaprogramming in pybind11
@@ -537,7 +556,7 @@ if (NANOGUI_BUILD_PYTHON)
     # Strip unnecessary sections of the binary on Linux/Mac OS
     if(APPLE)
       set_target_properties(nanogui-python PROPERTIES MACOSX_RPATH ".")
-#      set_target_properties(nanogui-python PROPERTIES LINK_FLAGS "-undefined dynamic_lookup ")
+      set_target_properties(nanogui-python PROPERTIES LINK_FLAGS "-undefined dynamic_lookup ")
 
       if (NOT ${U_CMAKE_BUILD_TYPE} MATCHES DEB)
         add_custom_command(TARGET nanogui-python POST_BUILD COMMAND strip -u -r $<TARGET_FILE:nanogui-python>)
