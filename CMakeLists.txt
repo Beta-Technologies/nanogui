@@ -525,7 +525,7 @@ if (NANOGUI_BUILD_PYTHON)
     # If building with setuptools, CMake will not be performing the install
     set_target_properties(nanogui-python PROPERTIES BUILD_WITH_INSTALL_RPATH TRUE)
 
-    target_link_libraries(nanogui-python PRIVATE ${PYTHON_LIBRARY})
+    target_link_libraries(nanogui-python ${PYTHON_LIBRARY})
 
     if(UNIX AND NOT APPLE)
       set_target_properties(nanogui-python PROPERTIES INSTALL_RPATH "$ORIGIN/../")
