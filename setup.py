@@ -8,5 +8,5 @@ setup(
    author_email='vincent@beta.team',
    packages=['nanogui',],
    package_dir={'nanogui': 'bin',},
-   package_data={'nanogui': ['nanogui.cp37-win_amd64.pyd', 'nanogui.dll', 'nanogui.so', 'libnanogui.so', 'nanogui.cpython-37m-x86_64-linux-gnu.so'],},
+   package_data={'nanogui': ['nanogui.cp37-win_amd64.pyd', 'nanogui.dll', 'nanogui.so', 'libnanogui.so'],},
 )
