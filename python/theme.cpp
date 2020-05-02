@@ -94,9 +94,7 @@ void register_theme(py::module &m) {
          .def_readwrite("mTextBoxUpIcon", &Theme::mTextBoxUpIcon, D(Theme, mTextBoxUpIcon))
          .def_readwrite("mTextBoxDownIcon", &Theme::mTextBoxDownIcon, D(Theme, mTextBoxDownIcon))
          .def_readwrite("mTextBoxIconExtraScale", &Theme::mTextBoxIconExtraScale, D(Theme, mTextBoxIconExtraScale))
-         .def_readwrite("mPlotBackgroundColor", &Theme::mPlotBackgroundColor, D(Theme, mPlotBackgroundColor))
-         .def_readwrite("mPlotForegroundColor", &Theme::mPlotForegroundColor, D(Theme, mPlotForegroundColor))
-         .def_readwrite("mPlotTextColor", &Theme::mPlotTextColor, D(Theme, mPlotTextColor));
+         .def_readwrite("mPlotBackgroundColor", &Theme::mPlotBackgroundColor, D(Theme, mPlotBackgroundColor));
 
     /* See declaration of global_default_fonts_proxy at the top of this file.
      *
