@@ -453,7 +453,7 @@ if (NANOGUI_BUILD_PYTHON)
 
   # Try to autodetect Python (can be overridden manually if needed)
   list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/ext/pybind11/tools")
-  set(Python_ADDITIONAL_VERSIONS 3.7 3.6 3.5 3.4)
+  set(Python_ADDITIONAL_VERSIONS 3.6 3.5 3.4)
   find_package(PythonLibsNew ${NANOGUI_PYTHON_VERSION})
   if (NOT PYTHONLIBS_FOUND)
     # Python not found -- disable the plugin
@@ -519,26 +519,8 @@ if (NANOGUI_BUILD_PYTHON)
     set_target_properties(nanogui-python PROPERTIES RUNTIME_OUTPUT_DIRECTORY_MINSIZEREL "MinSizeRel/python")
     set_target_properties(nanogui-python PROPERTIES RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO "RelWithDebInfo/python")
 
-#  ---------------------- ADDED ---------------------------------
-    set_target_properties(nanogui-python PROPERTIES SKIP_BUILD_RPATH FALSE)
-
-    # If building with setuptools, CMake will not be performing the install
-    set_target_properties(nanogui-python PROPERTIES BUILD_WITH_INSTALL_RPATH TRUE)
-
-    target_link_libraries(nanogui-python ${PYTHON_LIBRARY})
-
-    if(UNIX AND NOT APPLE)
-      set_target_properties(nanogui-python PROPERTIES INSTALL_RPATH "$ORIGIN/../")
-    elseif(APPLE)
-      set_target_properties(nanogui-python PROPERTIES INSTALL_RPATH "@loader_path/../")
-    endif()
-
-    set_target_properties(nanogui-python PROPERTIES INSTALL_RPATH_USE_LINK_PATH TRUE)
-
-    #  -------------------- END ADDED -------------------------------
-
 # Link against the Python shared library
-#    target_link_libraries(nanogui-python ${PYTHON_LIBRARY})
+    target_link_libraries(nanogui-python ${PYTHON_LIBRARY})
 
 
     if (MSVC)
