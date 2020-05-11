@@ -519,7 +519,7 @@ if (NANOGUI_BUILD_PYTHON)
     set_target_properties(nanogui-python PROPERTIES RUNTIME_OUTPUT_DIRECTORY_MINSIZEREL "MinSizeRel/python")
     set_target_properties(nanogui-python PROPERTIES RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO "RelWithDebInfo/python")
 
-# Link against the Python shared library
+  # Link against the Python shared library
     target_link_libraries(nanogui-python ${PYTHON_LIBRARY})
 
 
