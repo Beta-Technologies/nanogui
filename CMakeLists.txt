@@ -454,7 +454,7 @@ if (NANOGUI_BUILD_PYTHON)
 
   # Try to autodetect Python (can be overridden manually if needed)
   list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/ext/pybind11/tools")
-  set(Python_ADDITIONAL_VERSIONS 3.7 3.6 3.5 3.4)
+  set(Python_ADDITIONAL_VERSIONS 3.6 3.5 3.4)
   find_package(PythonLibsNew ${NANOGUI_PYTHON_VERSION})
   if (NOT PYTHONLIBS_FOUND)
     # Python not found -- disable the plugin
@@ -497,7 +497,9 @@ if (NANOGUI_BUILD_PYTHON)
   set_target_properties(nanogui-python PROPERTIES OUTPUT_NAME "nanogui")
   target_link_libraries(nanogui-python nanogui ${NANOGUI_EXTRA_LIBS})
 
-  # Quench warnings on GCC
+
+
+# Quench warnings on GCChttps://www.uvm.edu/cnhs/rms/profiles/patrick_malone_medpatrick_malone_med
   if (CMAKE_COMPILER_IS_GNUCC)
     set_property(TARGET nanogui-python-obj APPEND PROPERTY COMPILE_OPTIONS "-Wno-unused-variable")
   endif()
@@ -518,8 +520,9 @@ if (NANOGUI_BUILD_PYTHON)
     set_target_properties(nanogui-python PROPERTIES RUNTIME_OUTPUT_DIRECTORY_MINSIZEREL "MinSizeRel/python")
     set_target_properties(nanogui-python PROPERTIES RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO "RelWithDebInfo/python")
 
-    # Link against the Python shared library
+  # Link against the Python shared library
     target_link_libraries(nanogui-python ${PYTHON_LIBRARY})
+
 
     if (MSVC)
       # Optimize for size, /bigobj is needed for due to the heavy template metaprogramming in pybind11
