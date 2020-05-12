@@ -15,7 +15,6 @@
 #include <nanogui/serializer/core.h>
 
 #include <iostream>
-#include <iomanip>
 
 NAMESPACE_BEGIN(nanogui)
 
@@ -26,27 +25,18 @@ Plot::Plot(Widget *parent, const std::string &caption)
       mMinorTicks(0), 
       mXTimeScale(1.0f),
       mYmin(-1.0f),
-      mYmax(1.0f),
-      mTimeStart(0.0f),
-      mTimeEnd(0.0f),
-      mIndexStart(0),
-      mIndexEnd(0)
+      mYmax(1.0f)
 {
+    mBackgroundColor = Color(13, 19, 25, 255);
+    mForegroundColor = Color(13, 19, 25, 255);
+    mTextColor = Color(240, 192);
+
     mPlotColors[0] = Color(200,0,0,255);
     mPlotColors[1] = Color(0,200,0,255);
     mPlotColors[2] = Color(50,50,200,255);
     mPlotColors[3] = Color(200,200,0,255);
 
     mXTimeScale = 10; //ms per pixel
-    
-    for (int i = 0; i < MAX_PLOTS; i++)
-    {
-        mValuesFull[i] = false;
-        mValuesHead[i] = 0;
-        memset(mValues[i], 0, MAX_POINTS_PER_PLOT * sizeof(float));
-    } 
-    
-    
 }
 
 Plot::~Plot()
@@ -72,17 +62,15 @@ void Plot::setAxisTicks(float majorTicks, float minorTicks)
     mMinorTicks = minorTicks;
 }
 
-void Plot::addValue(const int &index, const float &value)
-{
+// Vector2i Plot::preferredSize(NVGcontext *) const {
+//     return Vector2i(180, 45);
+// }
+
+void Plot::setValues(const VectorXf &values, int index){
     if (index >= 0 && index < MAX_PLOTS)
     {
-        mValues[index][mValuesHead[index]] = value;
-        mValuesHead[index]++;
-        if (mValuesHead[index] == MAX_POINTS_PER_PLOT)
-        {
-            mValuesHead[index] = 0;
-            mValuesFull[index] = true;
-        }
+        //std::cout << "setting values for " << index << std::endl;
+        mValues[index] = values; //forces a copy
     }
 }
 
@@ -98,43 +86,41 @@ void Plot::setXTimeScale(float scale)
 }
 
 void Plot::draw(NVGcontext *ctx) {
+
+    //std::cout << "drawing plot widget " << std::endl;
+
     Widget::draw(ctx);
 
     nvgBeginPath(ctx);
     nvgRect(ctx, mPos.x(), mPos.y(), mSize.x(), mSize.y());
-    nvgFillColor(ctx, mTheme->mPlotBackgroundColor);
+    nvgFillColor(ctx, mBackgroundColor);
     nvgFill(ctx);
 
+    //std::cout << "calc range " << std::endl;
     calcTimeRange();
     drawAxes(ctx);
 
+    //std::cout << "plot loop " << std::endl;
     for (int i=0; i<MAX_PLOTS; i++)
     {
-        if ((mValuesHead[i] > 0) || mValuesFull[i])
+        if (mValues[i].size() > 0)
         {
-            drawPlotline(ctx, i) ;       
+            //std::cout << "plottng value set: " << i << std::endl;
+            drawPlotline(ctx, mValues[i], mPlotColors[i]) ;       
         }
     }
     drawLabels(ctx);
 }
 
 void Plot::calcTimeRange() {
-    mIndexEnd = mValuesFull[0] ? MAX_POINTS_PER_PLOT : mValuesHead[0];
-    mTimeEnd = mIndexEnd * mXTimeScale;
-    mIndexStart = 0;
-    if (mIndexEnd > mSize.x())
+    mTimeStart = 0.0f;
+    mTimeEnd = mValues[0].size() * mXTimeScale;
+    float time_range = mSize.x() * mXTimeScale;
+    if (mTimeEnd > time_range)
     {
-        mIndexStart = mIndexEnd - mSize.x();
+        mTimeStart = mTimeEnd - time_range;
     }     
-    mTimeStart = mIndexStart * mXTimeScale;
 }
-
-std::string format(double value) {
-    std::stringstream ss;
-    ss << std::fixed << std::setprecision(2) << value;
-    return ss.str();    
-}
-
 
 void Plot::drawAxes(NVGcontext *ctx) {
     nvgBeginPath(ctx);
@@ -142,14 +128,6 @@ void Plot::drawAxes(NVGcontext *ctx) {
     nvgLineTo(ctx, mPos.x() + mSize.x(), mPos.y() + mSize.y()/2.0);
     nvgStrokeColor(ctx, Color(43, 73, 96, 255));
     nvgStroke(ctx); 
-    
-    
-    nvgFontSize(ctx, 14.0f);
-    nvgTextAlign(ctx, NVG_ALIGN_LEFT | NVG_ALIGN_TOP);
-    nvgFillColor(ctx, mTheme->mPlotTextColor);
-    nvgText(ctx, mPos.x() + 3, mPos.y() + 3, format(mYmax).c_str(), NULL); 
-    nvgText(ctx, mPos.x() + 3, mPos.y() + mSize.y() / 2, format((mYmax + mYmin) / 2.0).c_str(), NULL); 
-    nvgText(ctx, mPos.x() + 3, mPos.y() + mSize.y() - 14, format(mYmin).c_str(), NULL); 
 
     drawAxisTicks(ctx, mMinorTicks, Color(21, 33, 42, 255));    
     drawAxisTicks(ctx, mMajorTicks, Color(38, 59, 75, 255));         
@@ -177,7 +155,7 @@ void Plot::drawAxisTicks(NVGcontext *ctx, float tick_interval, const Color &tick
 }
 
 
-void Plot::drawPlotline(NVGcontext *ctx, const int &index) {
+void Plot::drawPlotline(NVGcontext *ctx, const VectorXf &data, const Color &line_color) {
 
     // check the range
     if (mYmax == mYmin)
@@ -190,26 +168,29 @@ void Plot::drawPlotline(NVGcontext *ctx, const int &index) {
     nvgMoveTo(ctx, mPos.x(), mPos.y()+mSize.y()/2.0);
 
     //take the values at the end of the array and work back.
+    //std::cout << "draw plot lines with xtimescale : " << mXTimeScale << std::endl;
     size_t start_index = mTimeStart / mXTimeScale;
     size_t end_index = mTimeEnd / mXTimeScale;
 
+    //todo scale the value input based on yMin, yMax.
+
     //we only draw the last N values
+    //std::cout << "lineTo loop : " << start_index << " to " << end_index << std::endl;
+    //std::cout << "data size   : " << data.size() << std::endl;
     for (size_t i = start_index; i < end_index; i++) {
 
-        // get data point out of mValues based on queing position
-        float value = mValuesFull[index] ?
-                        (mValues[index][(mValuesHead[index] + i) % MAX_POINTS_PER_PLOT]) : 
-                        mValues[index][i];
-        
-
         //transform from (mYmax mYmin) to (1 0)
-        value = (value - mYmin)/(mYmax - mYmin);
+        float value = (data[i] - mYmin)/(mYmax - mYmin);
         float vx = mPos.x() + (i - start_index);
         float vy = mPos.y() + (1-value) * mSize.y();
         nvgLineTo(ctx, vx, vy);
     }
 
-    nvgStrokeColor(ctx, mPlotColors[index]);
+    // char sDots[20];
+    // sprintf(sDots, "n: %ld", mValues.size());
+    // mFooter = sDots;
+
+    nvgStrokeColor(ctx, line_color);
     nvgStroke(ctx);
 }
 
@@ -219,27 +200,24 @@ void Plot::drawLabels(NVGcontext *ctx) {
 
     if (!mCaption.empty()) {
         nvgFontSize(ctx, 14.0f);
-        nvgTextAlign(ctx, NVG_ALIGN_CENTER | NVG_ALIGN_TOP);
-        nvgFillColor(ctx, mTheme->mPlotTextColor);
-        nvgText(ctx, mPos.x() + mSize.x()/2, mPos.y() + 1, mCaption.c_str(), NULL);
+        nvgTextAlign(ctx, NVG_ALIGN_LEFT | NVG_ALIGN_TOP);
+        nvgFillColor(ctx, mTextColor);
+        nvgText(ctx, mPos.x() + 3, mPos.y() + 1, mCaption.c_str(), NULL);
     }
 
     if (!mHeader.empty()) {
         nvgFontSize(ctx, 18.0f);
         nvgTextAlign(ctx, NVG_ALIGN_RIGHT | NVG_ALIGN_TOP);
-        nvgFillColor(ctx, mTheme->mPlotTextColor);
+        nvgFillColor(ctx, mTextColor);
         nvgText(ctx, mPos.x() + mSize.x() - 3, mPos.y() + 1, mHeader.c_str(), NULL);
     }
 
     if (!mFooter.empty()) {
         nvgFontSize(ctx, 15.0f);
         nvgTextAlign(ctx, NVG_ALIGN_RIGHT | NVG_ALIGN_BOTTOM);
-        nvgFillColor(ctx, mTheme->mPlotTextColor);
+        nvgFillColor(ctx, mTextColor);
         nvgText(ctx, mPos.x() + mSize.x() - 3, mPos.y() + mSize.y() - 1, mFooter.c_str(), NULL);
     }
-
-
-
 
     nvgBeginPath(ctx);
     nvgRect(ctx, mPos.x(), mPos.y(), mSize.x(), mSize.y());
@@ -252,9 +230,9 @@ void Plot::save(Serializer &s) const {
     s.set("caption", mCaption);
     s.set("header", mHeader);
     s.set("footer", mFooter);
-    s.set("backgroundColor", mTheme->mPlotBackgroundColor);
-    s.set("foregroundColor", mTheme->mPlotForegroundColor);
-    s.set("textColor", mTheme->mPlotTextColor);
+    s.set("backgroundColor", mBackgroundColor);
+    s.set("foregroundColor", mForegroundColor);
+    s.set("textColor", mTextColor);
     //s.set("values", mValues);
 }
 
@@ -263,9 +241,9 @@ bool Plot::load(Serializer &s) {
     if (!s.get("caption", mCaption)) return false;
     if (!s.get("header", mHeader)) return false;
     if (!s.get("footer", mFooter)) return false;
-    if (!s.get("backgroundColor", mTheme->mPlotBackgroundColor)) return false;
-    if (!s.get("foregroundColor", mTheme->mPlotForegroundColor)) return false;
-    if (!s.get("textColor", mTheme->mPlotTextColor)) return false;
+    if (!s.get("backgroundColor", mBackgroundColor)) return false;
+    if (!s.get("foregroundColor", mForegroundColor)) return false;
+    if (!s.get("textColor", mTextColor)) return false;
     //if (!s.get("values", mValues)) return false;
     return true;
 }

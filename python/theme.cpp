@@ -93,8 +93,7 @@ void register_theme(py::module &m) {
          .def_readwrite("mTabHeaderRightIcon", &Theme::mTabHeaderRightIcon, D(Theme, mTabHeaderRightIcon))
          .def_readwrite("mTextBoxUpIcon", &Theme::mTextBoxUpIcon, D(Theme, mTextBoxUpIcon))
          .def_readwrite("mTextBoxDownIcon", &Theme::mTextBoxDownIcon, D(Theme, mTextBoxDownIcon))
-         .def_readwrite("mTextBoxIconExtraScale", &Theme::mTextBoxIconExtraScale, D(Theme, mTextBoxIconExtraScale))
-         .def_readwrite("mPlotBackgroundColor", &Theme::mPlotBackgroundColor, D(Theme, mPlotBackgroundColor));
+         .def_readwrite("mTextBoxIconExtraScale", &Theme::mTextBoxIconExtraScale, D(Theme, mTextBoxIconExtraScale));
 
     /* See declaration of global_default_fonts_proxy at the top of this file.
      *

@@ -14,8 +14,7 @@
 
 #include <nanogui/widget.h>
 
-#define MAX_PLOTS (10)
-#define MAX_POINTS_PER_PLOT (1000)
+#define MAX_PLOTS 4
 
 NAMESPACE_BEGIN(nanogui)
 
@@ -26,7 +25,7 @@ NAMESPACE_BEGIN(nanogui)
  */
 class NANOGUI_EXPORT Plot : public Widget {
 public:
-    Plot(Widget *parent, const std::string &caption = "");
+    Plot(Widget *parent, const std::string &caption = "Plot");
     virtual ~Plot();
 
     const std::string &caption() const { return mCaption; }
@@ -59,24 +58,21 @@ public:
 
     void setYRange(float min, float max);
     void setXTimeScale(float scale);
-    void addValue(const int &index, const float &value);
+    void setValues(const VectorXf &values, int index);
 
 
 protected:
     void calcTimeRange();
     void drawAxes(NVGcontext *ctx);   
     void drawAxisTicks(NVGcontext *ctx, float tick_interval, const Color &tick_color);
-    void drawPlotline(NVGcontext *ctx, const int &index);
+    void drawPlotline(NVGcontext *ctx, const VectorXf &data, const Color &line_color);
     void drawLabels(NVGcontext *ctx);
 
 protected:
     std::string mCaption, mHeader, mFooter;
     Color mBackgroundColor, mForegroundColor, mTextColor;
 
-    float mValues[MAX_PLOTS][MAX_POINTS_PER_PLOT];
-    int mValuesHead[MAX_PLOTS];
-    bool mValuesFull[MAX_PLOTS];
-    
+    VectorXf mValues[MAX_PLOTS];
     Color mPlotColors[MAX_PLOTS];
     std::string mPlotLabels[MAX_PLOTS];
 
@@ -88,8 +84,6 @@ protected:
 
     float mTimeStart;
     float mTimeEnd;
-    int mIndexStart;
-    int mIndexEnd;
 
 public:
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW

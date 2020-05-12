@@ -13,8 +13,8 @@ endif()
 
 if (NOT IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/ext/glfw/src")
   message(FATAL_ERROR "The NanoGUI dependency repositories (GLFW, etc.) are missing! "
-    "You probably did not clone the project with --recursive. It is possible to recover "
-    "by calling \"git submodule update --init --recursive\"")
+          "You probably did not clone the project with --recursive. It is possible to recover "
+          "by calling \"git submodule update --init --recursive\"")
 endif()
 
 if (WIN32)
@@ -51,7 +51,7 @@ if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   message(STATUS "Setting build type to 'Release' as none was specified.")
   set(CMAKE_BUILD_TYPE Release CACHE STRING "Choose the type of build." FORCE)
   set_property(CACHE CMAKE_BUILD_TYPE PROPERTY STRINGS "Debug" "Release"
-    "MinSizeRel" "RelWithDebInfo")
+          "MinSizeRel" "RelWithDebInfo")
 endif()
 string(TOUPPER "${CMAKE_BUILD_TYPE}" U_CMAKE_BUILD_TYPE)
 
@@ -149,8 +149,8 @@ if (NANOGUI_BUILD_SHARED)
         set(LTO_CXX_FLAGS "-flto=thin")
         set(LTO_LINKER_FLAGS "-flto=thin")
         if (NOT APPLE AND U_CMAKE_BUILD_TYPE MATCHES MINSIZEREL)
-            # Clang Gold plugin does not support -Os
-            set(LTO_CXX_FLAGS "${LTO_CXX_FLAGS} -O3")
+          # Clang Gold plugin does not support -Os
+          set(LTO_CXX_FLAGS "${LTO_CXX_FLAGS} -O3")
         endif()
       else()
         set(LTO_CXX_FLAGS "-flto -fno-fat-lto-objects")
@@ -205,12 +205,12 @@ endif()
 if (NANOGUI_USE_GLAD)
   # Build and include GLAD on Windows
   list(APPEND LIBNANOGUI_EXTRA_SOURCE
-     "${CMAKE_CURRENT_SOURCE_DIR}/ext/glad/src/glad.c"
-	 "${CMAKE_CURRENT_SOURCE_DIR}/ext/glad/include/glad/glad.h"
-	 "${CMAKE_CURRENT_SOURCE_DIR}/ext/glad/include/KHR/khrplatform.h")
+          "${CMAKE_CURRENT_SOURCE_DIR}/ext/glad/src/glad.c"
+          "${CMAKE_CURRENT_SOURCE_DIR}/ext/glad/include/glad/glad.h"
+          "${CMAKE_CURRENT_SOURCE_DIR}/ext/glad/include/KHR/khrplatform.h")
   if (MSVC)
     set_source_files_properties("${CMAKE_CURRENT_SOURCE_DIR}/ext/glad/src/glad.c"
-      PROPERTIES COMPILE_FLAGS "/wd4055 ")
+            PROPERTIES COMPILE_FLAGS "/wd4055 ")
   endif()
   include_directories(ext/glad/include)
   list(APPEND NANOGUI_EXTRA_DEFS -DNANOGUI_GLAD)
@@ -218,9 +218,9 @@ if (NANOGUI_USE_GLAD)
 endif()
 
 list(APPEND NANOGUI_EXTRA_INCS
-  "${CMAKE_CURRENT_SOURCE_DIR}/ext/glfw/include"
-  "${CMAKE_CURRENT_SOURCE_DIR}/ext/nanovg/src"
-)
+        "${CMAKE_CURRENT_SOURCE_DIR}/ext/glfw/include"
+        "${CMAKE_CURRENT_SOURCE_DIR}/ext/nanovg/src"
+        )
 
 if (NOT NANOGUI_EIGEN_INCLUDE_DIR)
   set(NANOGUI_EIGEN_INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/ext/eigen")
@@ -270,18 +270,18 @@ string (REGEX REPLACE "[\\](.)" "\\1" resources_string "${resources_string}")
 
 # Create command line for running bin2c cmake script
 set(bin2c_cmdline
-  -DOUTPUT_C=nanogui_resources.cpp
-  -DOUTPUT_H=nanogui_resources.h
-  "-DINPUT_FILES=${resources_string}"
-  -P "${CMAKE_CURRENT_SOURCE_DIR}/resources/bin2c.cmake")
+        -DOUTPUT_C=nanogui_resources.cpp
+        -DOUTPUT_H=nanogui_resources.h
+        "-DINPUT_FILES=${resources_string}"
+        -P "${CMAKE_CURRENT_SOURCE_DIR}/resources/bin2c.cmake")
 
 # Run bin2c on resource files
 add_custom_command(
-  OUTPUT nanogui_resources.cpp nanogui_resources.h
-  COMMAND ${CMAKE_COMMAND} ARGS ${bin2c_cmdline}
-  DEPENDS ${resources}
-  COMMENT "Running bin2c"
-  PRE_BUILD VERBATIM)
+        OUTPUT nanogui_resources.cpp nanogui_resources.h
+        COMMAND ${CMAKE_COMMAND} ARGS ${bin2c_cmdline}
+        DEPENDS ${resources}
+        COMMENT "Running bin2c"
+        PRE_BUILD VERBATIM)
 
 # Needed to generated files
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
@@ -309,60 +309,60 @@ add_definitions(${NANOGUI_EXTRA_DEFS})
 
 # Compile main NanoGUI library
 add_library(nanogui-obj OBJECT
-  # Merge NanoVG into the NanoGUI library
-  ext/nanovg/src/nanovg.c
-  # Merge GLAD into the NanoGUI library (only if needed)
-  ${LIBNANOGUI_EXTRA_SOURCE}
-  # Fonts etc.
-  nanogui_resources.cpp
-  include/nanogui/glutil.h src/glutil.cpp
-  include/nanogui/common.h src/common.cpp
-  include/nanogui/widget.h src/widget.cpp
-  include/nanogui/theme.h src/theme.cpp
-  include/nanogui/layout.h src/layout.cpp
-  include/nanogui/screen.h src/screen.cpp
-  include/nanogui/label.h src/label.cpp
-  include/nanogui/window.h src/window.cpp
-  include/nanogui/popup.h src/popup.cpp
-  include/nanogui/checkbox.h src/checkbox.cpp
-  include/nanogui/button.h src/button.cpp
-  include/nanogui/popupbutton.h src/popupbutton.cpp
-  include/nanogui/combobox.h src/combobox.cpp
-  include/nanogui/progressbar.h src/progressbar.cpp
-  include/nanogui/slider.h src/slider.cpp
-  include/nanogui/messagedialog.h src/messagedialog.cpp
-  include/nanogui/textbox.h src/textbox.cpp
-  include/nanogui/imagepanel.h src/imagepanel.cpp
-  include/nanogui/imageview.h src/imageview.cpp
-  include/nanogui/staticimageview.h src/staticimageview.cpp
-  include/nanogui/vscrollpanel.h src/vscrollpanel.cpp
-  include/nanogui/colorwheel.h src/colorwheel.cpp
-  include/nanogui/colorpicker.h src/colorpicker.cpp
-  include/nanogui/graph.h src/graph.cpp
-  include/nanogui/stackedwidget.h src/stackedwidget.cpp
-  include/nanogui/tabheader.h src/tabheader.cpp
-  include/nanogui/tabwidget.h src/tabwidget.cpp
-  include/nanogui/glcanvas.h src/glcanvas.cpp
+        # Merge NanoVG into the NanoGUI library
+        ext/nanovg/src/nanovg.c
+        # Merge GLAD into the NanoGUI library (only if needed)
+        ${LIBNANOGUI_EXTRA_SOURCE}
+        # Fonts etc.
+        nanogui_resources.cpp
+        include/nanogui/glutil.h src/glutil.cpp
+        include/nanogui/common.h src/common.cpp
+        include/nanogui/widget.h src/widget.cpp
+        include/nanogui/theme.h src/theme.cpp
+        include/nanogui/layout.h src/layout.cpp
+        include/nanogui/screen.h src/screen.cpp
+        include/nanogui/label.h src/label.cpp
+        include/nanogui/window.h src/window.cpp
+        include/nanogui/popup.h src/popup.cpp
+        include/nanogui/checkbox.h src/checkbox.cpp
+        include/nanogui/button.h src/button.cpp
+        include/nanogui/popupbutton.h src/popupbutton.cpp
+        include/nanogui/combobox.h src/combobox.cpp
+        include/nanogui/progressbar.h src/progressbar.cpp
+        include/nanogui/slider.h src/slider.cpp
+        include/nanogui/messagedialog.h src/messagedialog.cpp
+        include/nanogui/textbox.h src/textbox.cpp
+        include/nanogui/imagepanel.h src/imagepanel.cpp
+        include/nanogui/imageview.h src/imageview.cpp
+        include/nanogui/staticimageview.h src/staticimageview.cpp
+        include/nanogui/vscrollpanel.h src/vscrollpanel.cpp
+        include/nanogui/colorwheel.h src/colorwheel.cpp
+        include/nanogui/colorpicker.h src/colorpicker.cpp
+        include/nanogui/graph.h src/graph.cpp
+        include/nanogui/stackedwidget.h src/stackedwidget.cpp
+        include/nanogui/tabheader.h src/tabheader.cpp
+        include/nanogui/tabwidget.h src/tabwidget.cpp
+        include/nanogui/glcanvas.h src/glcanvas.cpp
 
-  #extended widgets for Beta Tech.
-  include/nanogui/extended/colorbar.h src/extended/colorbar.cpp
-  include/nanogui/extended/led.h src/extended/led.cpp
-  include/nanogui/extended/toggleswitch.h src/extended/toggleswitch.cpp 
-  include/nanogui/extended/motorwheel.h src/extended/motorwheel.cpp
-  include/nanogui/extended/rpy.h src/extended/rpy.cpp
-  include/nanogui/extended/motorquad.h src/extended/motorquad.cpp
-  include/nanogui/extended/plot.h src/extended/plot.cpp  
-  include/nanogui/extended/inputquad.h src/extended/inputquad.cpp
+        #extended widgets for Beta Tech.
+        include/nanogui/extended/colorbar.h src/extended/colorbar.cpp
+        include/nanogui/extended/led.h src/extended/led.cpp
+        include/nanogui/extended/toggleswitch.h src/extended/toggleswitch.cpp
+        include/nanogui/extended/motorwheel.h src/extended/motorwheel.cpp
+        include/nanogui/extended/rpy.h src/extended/rpy.cpp
+        include/nanogui/extended/motorquad.h src/extended/motorquad.cpp
+        include/nanogui/extended/plot.h src/extended/plot.cpp
+        include/nanogui/extended/inputquad.h src/extended/inputquad.cpp
 
-  include/nanogui/formhelper.h
-  include/nanogui/toolbutton.h
-  include/nanogui/opengl.h
-  include/nanogui/nanogui.h
-  include/nanogui/serializer/core.h
-  include/nanogui/serializer/opengl.h
-  include/nanogui/serializer/sparse.h
-  src/serializer.cpp
-)
+        include/nanogui/formhelper.h
+        include/nanogui/toolbutton.h
+        include/nanogui/opengl.h
+        include/nanogui/nanogui.h
+        include/nanogui/serializer/core.h
+        include/nanogui/serializer/opengl.h
+        include/nanogui/serializer/sparse.h
+        src/serializer.cpp
+        )
 
 # XCode has a serious bug where the XCode project produces an invalid target
 # that will not get linked if it consists only of objects from object libraries,
@@ -373,15 +373,15 @@ if (CMAKE_GENERATOR STREQUAL Xcode)
   set(XCODE_DUMMY ${CMAKE_CURRENT_BINARY_DIR}/xcode_dummy.cpp)
   file(WRITE ${XCODE_DUMMY} "")
   add_library(nanogui ${NANOGUI_LIBRARY_TYPE}
-    ${XCODE_DUMMY}
-    $<TARGET_OBJECTS:nanogui-obj>
-    $<TARGET_OBJECTS:glfw_objects>
-  )
+          ${XCODE_DUMMY}
+          $<TARGET_OBJECTS:nanogui-obj>
+          $<TARGET_OBJECTS:glfw_objects>
+          )
 else()
   add_library(nanogui ${NANOGUI_LIBRARY_TYPE}
-    $<TARGET_OBJECTS:nanogui-obj>
-    $<TARGET_OBJECTS:glfw_objects>
-  )
+          $<TARGET_OBJECTS:nanogui-obj>
+          $<TARGET_OBJECTS:glfw_objects>
+          )
 endif()
 
 if (NANOGUI_BUILD_SHARED)
@@ -393,7 +393,7 @@ set_property(TARGET nanogui-obj APPEND PROPERTY COMPILE_DEFINITIONS "NANOGUI_BUI
 
 if (NANOGUI_USE_GLAD AND NANOGUI_BUILD_SHARED)
   set_property(TARGET nanogui-obj APPEND PROPERTY COMPILE_DEFINITIONS
-    "GLAD_GLAPI_EXPORT;GLAD_GLAPI_EXPORT_BUILD")
+          "GLAD_GLAPI_EXPORT;GLAD_GLAPI_EXPORT_BUILD")
 endif()
 
 if (NANOGUI_BUILD_SHARED)
@@ -472,25 +472,25 @@ if (NANOGUI_BUILD_PYTHON)
 
   include_directories("ext/pybind11/include" ${PYTHON_INCLUDE_DIR})
   add_library(nanogui-python-obj OBJECT
-    python/main.cpp
-    python/constants_glfw.cpp
-    python/constants_entypo.cpp
-    python/eigen.cpp
-    python/widget.cpp
-    python/theme.cpp
-    python/layout.cpp
-    python/basics.cpp
-    python/button.cpp
-    python/tabs.cpp
-    python/textbox.cpp
-    python/glcanvas.cpp
-    python/formhelper.cpp
-    python/misc.cpp
-    python/beta.cpp
-    python/glutil.cpp
-    python/nanovg.cpp
-    python/python.h python/py_doc.h
-    ${LIBNANOGUI_PYTHON_EXTRA_SOURCE})
+          python/main.cpp
+          python/constants_glfw.cpp
+          python/constants_entypo.cpp
+          python/eigen.cpp
+          python/widget.cpp
+          python/theme.cpp
+          python/layout.cpp
+          python/basics.cpp
+          python/button.cpp
+          python/tabs.cpp
+          python/textbox.cpp
+          python/glcanvas.cpp
+          python/formhelper.cpp
+          python/misc.cpp
+          python/beta.cpp
+          python/glutil.cpp
+          python/nanovg.cpp
+          python/python.h python/py_doc.h
+          ${LIBNANOGUI_PYTHON_EXTRA_SOURCE})
 
   add_library(nanogui-python SHARED $<TARGET_OBJECTS:nanogui-python-obj>)
   set_property(TARGET nanogui-python-obj PROPERTY POSITION_INDEPENDENT_CODE ON)
@@ -499,7 +499,7 @@ if (NANOGUI_BUILD_PYTHON)
 
 
 
-# Quench warnings on GCChttps://www.uvm.edu/cnhs/rms/profiles/patrick_malone_medpatrick_malone_med
+  # Quench warnings on GCChttps://www.uvm.edu/cnhs/rms/profiles/patrick_malone_medpatrick_malone_med
   if (CMAKE_COMPILER_IS_GNUCC)
     set_property(TARGET nanogui-python-obj APPEND PROPERTY COMPILE_OPTIONS "-Wno-unused-variable")
   endif()
@@ -520,15 +520,15 @@ if (NANOGUI_BUILD_PYTHON)
     set_target_properties(nanogui-python PROPERTIES RUNTIME_OUTPUT_DIRECTORY_MINSIZEREL "MinSizeRel/python")
     set_target_properties(nanogui-python PROPERTIES RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO "RelWithDebInfo/python")
 
-  # Link against the Python shared library
+    # Link against the Python shared library
     target_link_libraries(nanogui-python ${PYTHON_LIBRARY})
 
 
     if (MSVC)
       # Optimize for size, /bigobj is needed for due to the heavy template metaprogramming in pybind11
       set_property(TARGET nanogui-python-obj APPEND PROPERTY COMPILE_OPTIONS
-        "/bigobj" "$<$<CONFIG:Release>:/Os>" "$<$<CONFIG:MinSizeRel>:/Os>"
-        "$<$<CONFIG:RelWithDebInfo>:/Os>")
+              "/bigobj" "$<$<CONFIG:Release>:/Os>" "$<$<CONFIG:MinSizeRel>:/Os>"
+              "$<$<CONFIG:RelWithDebInfo>:/Os>")
     endif()
   elseif(UNIX)
     # Optimize for size
@@ -582,10 +582,10 @@ else()
   endforeach()
 
   add_custom_target(mkdoc COMMAND
-    python3 ${PROJECT_SOURCE_DIR}/docs/mkdoc_rst.py
-      ${MKDOC_CXX_FLAGS_LIST}
-      ${PROJECT_SOURCE_DIR}/include/nanogui/*.h
-      > ${CMAKE_CURRENT_SOURCE_DIR}/python/py_doc.h)
+          python3 ${PROJECT_SOURCE_DIR}/docs/mkdoc_rst.py
+          ${MKDOC_CXX_FLAGS_LIST}
+          ${PROJECT_SOURCE_DIR}/include/nanogui/*.h
+          > ${CMAKE_CURRENT_SOURCE_DIR}/python/py_doc.h)
 
 endif()
 

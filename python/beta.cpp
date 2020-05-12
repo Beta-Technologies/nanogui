@@ -9,7 +9,6 @@ DECLARE_WIDGET(ColorBar);
 DECLARE_WIDGET(Led);
 DECLARE_WIDGET(Plot);
 DECLARE_WIDGET(RpyWidget);
-DECLARE_WIDGET(InputQuad);
 
 void register_beta(py::module &m) {
 	py::class_<MotorWheel, Widget, ref<MotorWheel>, PyMotorWheel>(m, "MotorWheel", D(MotorWheel))
@@ -61,8 +60,8 @@ void register_beta(py::module &m) {
 
     py::class_<Plot, Widget, ref<Plot>, PyPlot>(m, "Plot", D(Plot))
         .def(py::init<Widget *, const std::string &>(), py::arg("parent"),
-             py::arg("caption") = std::string(""), D(Plot, Plot))
-        .def("caption", &Plot::caption, D(Plot, caption))
+             py::arg("caption") = std::string("Plot"), D(Plot, Plot))
+       .def("caption", &Plot::caption, D(Plot, caption))
         .def("setCaption", &Plot::setCaption, D(Plot, setCaption))
         .def("header", &Plot::header, D(Plot, header))
         .def("setHeader", &Plot::setHeader, D(Plot, setHeader))
@@ -74,7 +73,7 @@ void register_beta(py::module &m) {
         .def("setForegroundColor", &Plot::setForegroundColor, D(Plot, setForegroundColor))
         .def("textColor", &Plot::textColor, D(Plot, textColor))
         .def("setTextColor", &Plot::setTextColor, D(Plot, setTextColor))        
-        .def("addValue", &Plot::addValue, D(Plot, addValue))
+        .def("setValues", &Plot::setValues, D(Plot, setValues))
         .def("setLabel", &Plot::setLabel, D(Plot, setLabel))
         .def("setAxisTicks", &Plot::setAxisTicks, D(Plot, setAxisTicks))
         .def("setYRange", &Plot::setYRange, D(Plot, setYRange))
@@ -90,20 +89,7 @@ void register_beta(py::module &m) {
         .def("angle", &RpyWidget::angle, D(RpyWidget, angle))
         .def("setAngle", &RpyWidget::setAngle, D(RpyWidget, setAngle))        
         .def("callback", &RpyWidget::callback, D(RpyWidget, callback))
-        .def("setCallback", &RpyWidget::setCallback, D(RpyWidget, setCallback));
-
-    py::class_<InputQuad, Widget, ref<InputQuad>, PyInputQuad>(m, "InputQuad", D(InputQuad))
-        .def(py::init<Widget *>(), py::arg("parent"), D(InputQuad, InputQuad))
-        .def(py::init<Widget *, const Color &>(), py::arg("parent"), py::arg("Color"))
-        .def(py::init<Widget *, const Color &, bool>(), py::arg("parent"), py::arg("Color"), py::arg("levels"))
-        .def("color", &InputQuad::color, D(InputQuad, color))
-        .def("setColor", &InputQuad::setColor, D(InputQuad, setColor))
-        .def("getInputValue", &InputQuad::getInputValue, D(InputQuad, getValue))
-        .def("setInputValue", &InputQuad::setInputValue, D(InputQuad, setValue))
-        .def("getTorqueValue", &InputQuad::getTorqueValue, D(InputQuad, getValue))
-        .def("setTorqueValue", &InputQuad::setTorqueValue, D(InputQuad, setValue))        
-        .def("callback", &InputQuad::callback, D(InputQuad, callback))
-        .def("setCallback", &InputQuad::setCallback, D(InputQuad, setCallback));
+        .def("setCallback", &RpyWidget::setCallback, D(RpyWidget, setCallback));         
 }
 
 #endif

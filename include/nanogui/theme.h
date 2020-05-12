@@ -321,11 +321,6 @@ public:
      */
     Color mWindowPopupTransparent;
 
-    /* Beta Custom */
-    Color mPlotBackgroundColor;
-    Color mPlotForegroundColor;
-    Color mPlotTextColor;
-
     /// Icon to use for CheckBox widgets (default: ``ENTYPO_ICON_CHECK``).
     int mCheckBoxIcon;
     /**
