@@ -129,8 +129,8 @@ void Plot::drawAxes(NVGcontext *ctx) {
     nvgStrokeColor(ctx, Color(43, 73, 96, 255));
     nvgStroke(ctx); 
 
-    drawAxisTicks(ctx, mMinorTicks, Color(21, 33, 42, 255));    
-    drawAxisTicks(ctx, mMajorTicks, Color(38, 59, 75, 255));         
+    drawAxisTicks(ctx, mMinorTicks, mTheme->mPlotMinorTickColor);
+    drawAxisTicks(ctx, mMajorTicks, mTheme->mPlotMajorTickColor);
 }
 
 void Plot::drawAxisTicks(NVGcontext *ctx, float tick_interval, const Color &tick_color) {

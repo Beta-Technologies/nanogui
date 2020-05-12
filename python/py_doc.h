@@ -4251,6 +4251,12 @@ static const char *__doc_nanogui_Theme_mPlotForegroundColor =
 static const char *__doc_nanogui_Theme_mPlotTextColor =
         R"doc(The text color for a Plot.)doc";
 
+static const char *__doc_nanogui_Theme_mPlotMajorTickColor =
+        R"doc(The major tick color for a Plot.)doc";
+
+static const char *__doc_nanogui_Theme_mPlotMinorTickColor =
+        R"doc(The minor tick color for a Plot.)doc";
+
 
 static const char *__doc_nanogui_Theme_operator_delete = R"doc()doc";
 

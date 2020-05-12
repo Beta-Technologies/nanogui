@@ -316,6 +316,8 @@ public:
     Color mPlotBackgroundColor;
     Color mPlotForegroundColor;
     Color mPlotTextColor;
+    Color mPlotMajorTickColor;
+    Color mPlotMinorTickColor;
 
     /**
      * The popup window color
