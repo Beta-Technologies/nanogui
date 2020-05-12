@@ -91,9 +91,6 @@ public:
 
     /// Set the window title bar caption
     void setCaption(const std::string &caption);
-    
-    /// Set the window icon
-    void setIcon(const std::string &icon);
 
     /// Return the screen's background color
     const Color &background() const { return mBackground; }

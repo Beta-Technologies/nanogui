@@ -94,12 +94,6 @@ Theme::Theme(NVGcontext *ctx) {
     mTextBoxDownIcon                  = ENTYPO_ICON_CHEVRON_DOWN;
     mTextBoxIconExtraScale            = defaultTextBoxIconExtraScale();
 
-    // Beta Custom
-    mPlotBackgroundColor              = Color(13, 19, 25, 255);
-    mPlotForegroundColor              = Color(13, 19, 25, 255);
-    mPlotTextColor                    = Color(240, 192);
-
-
     mFontNormal = nvgCreateFontMem(ctx, Theme::GlobalDefaultFonts::Normal, titilliumweb_regular_ttf,
                                    titilliumweb_regular_ttf_size, 0);
 
