@@ -311,6 +311,13 @@ public:
     Color mWindowHeaderSepBot;
 
     /**
+     * Plot related items
+     */
+    Color mPlotBackgroundColor;
+    Color mPlotForegroundColor;
+    Color mPlotTextColor;
+
+    /**
      * The popup window color
      * (default: intensity=``50``, alpha=``255``; see \ref nanogui::Color::Color(int,int))).
      */
