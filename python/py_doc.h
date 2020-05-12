@@ -4242,6 +4242,16 @@ static const char *__doc_nanogui_Theme_mWindowTitleUnfocused =
 R"doc(The title color for a Window that is not in focus (default:
 intensity=``220``, alpha=``160``; see nanogui::Color::Color(int,int)).)doc";
 
+static const char *__doc_nanogui_Theme_mPlotBackgroundColor =
+        R"doc(The background color for a Plot.)doc";
+
+static const char *__doc_nanogui_Theme_mPlotForegroundColor =
+        R"doc(The foreground color for a Plot.)doc";
+
+static const char *__doc_nanogui_Theme_mPlotTextColor =
+        R"doc(The text color for a Plot.)doc";
+
+
 static const char *__doc_nanogui_Theme_operator_delete = R"doc()doc";
 
 static const char *__doc_nanogui_Theme_operator_delete_2 = R"doc()doc";

@@ -27,9 +27,9 @@ Plot::Plot(Widget *parent, const std::string &caption)
       mYmin(-1.0f),
       mYmax(1.0f)
 {
-    mBackgroundColor = Color(13, 19, 25, 255);
-    mForegroundColor = Color(13, 19, 25, 255);
-    mTextColor = Color(240, 192);
+    mBackgroundColor = mTheme->mPlotBackgroundColor;
+    mForegroundColor = mTheme->mPlotForegroundColor;
+    mTextColor = mTheme->mPlotTextColor;
 
     mPlotColors[0] = Color(200,0,0,255);
     mPlotColors[1] = Color(0,200,0,255);
