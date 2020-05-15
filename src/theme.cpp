@@ -97,7 +97,8 @@ Theme::Theme(NVGcontext *ctx) {
     mPlotBackgroundColor              = Color(13, 19, 25, 255);
     mPlotForegroundColor              = Color(13, 19, 25, 255);
     mPlotTextColor                    = Color(240, 192);
-
+    mPlotMajorTickColor               = Color(38, 59, 75, 255);
+    mPlotMinorTickColor               = Color(21, 33, 42, 255);
 
     mFontNormal = nvgCreateFontMem(ctx, Theme::GlobalDefaultFonts::Normal, titilliumweb_regular_ttf,
                                    titilliumweb_regular_ttf_size, 0);

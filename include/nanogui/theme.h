@@ -325,6 +325,8 @@ public:
     Color mPlotBackgroundColor;
     Color mPlotForegroundColor;
     Color mPlotTextColor;
+    Color mPlotMajorTickColor;
+    Color mPlotMinorTickColor;
 
     /// Icon to use for CheckBox widgets (default: ``ENTYPO_ICON_CHECK``).
     int mCheckBoxIcon;

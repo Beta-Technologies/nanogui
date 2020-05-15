@@ -5335,6 +5335,12 @@ static const char *__doc_nanogui_Theme_mPlotForegroundColor =
 static const char *__doc_nanogui_Theme_mPlotTextColor =
         R"doc(Set the color of plot text.)doc";
 
+static const char *__doc_nanogui_Theme_mPlotMajorTickColor =
+        R"doc(The major tick color for a Plot.)doc";
+
+static const char *__doc_nanogui_Theme_mPlotMinorTickColor =
+        R"doc(The minor tick color for a Plot.)doc";
+
 #if defined(__GNUG__)
 #pragma GCC diagnostic pop
 #endif
