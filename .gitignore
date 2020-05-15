@@ -19,9 +19,6 @@ example[1-9]
 example_icons
 icons
 *~
-nanogui*.so
-nanogui*.pyd
-libnanogui.so
 libnanogui.dylib
 .vscode/
 # html documentation specific
@@ -29,6 +26,9 @@ libnanogui.dylib
 docs/_build
 docs/_doxygen
 docs/api
+
+.vs
+.idea
 
 # entypo update generation
 # this is it's own repo: https://github.com/svenevs/nanogui-entypo

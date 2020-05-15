@@ -149,10 +149,10 @@ void Plot::drawAxes(NVGcontext *ctx) {
     nvgFillColor(ctx, mTheme->mPlotTextColor);
     nvgText(ctx, mPos.x() + 3, mPos.y() + 3, format(mYmax).c_str(), NULL); 
     nvgText(ctx, mPos.x() + 3, mPos.y() + mSize.y() / 2, format((mYmax + mYmin) / 2.0).c_str(), NULL); 
-    nvgText(ctx, mPos.x() + 3, mPos.y() + mSize.y() - 14, format(mYmin).c_str(), NULL); 
+    nvgText(ctx, mPos.x() + 3, mPos.y() + mSize.y() - 14, format(mYmin).c_str(), NULL);
 
-    drawAxisTicks(ctx, mMinorTicks, Color(21, 33, 42, 255));    
-    drawAxisTicks(ctx, mMajorTicks, Color(38, 59, 75, 255));         
+    drawAxisTicks(ctx, mMinorTicks, mTheme->mPlotMinorTickColor);
+    drawAxisTicks(ctx, mMajorTicks, mTheme->mPlotMajorTickColor);
 }
 
 void Plot::drawAxisTicks(NVGcontext *ctx, float tick_interval, const Color &tick_color) {
