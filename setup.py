@@ -2,12 +2,6 @@ from setuptools import setup
 import sys
 import platform
 
-if sys.version_info[1] != 6 and sys.version_info[1] != 7:
-    raise Exception("Must be using Python 3.6 or 3.7")
-
-if platform.system() not in ['Windows', 'Darwin', 'Linux']:
-    raise Exception("Unrecognized Platform")
-
 distributions = {
     'Windows': {
         6: {
@@ -35,16 +29,29 @@ distributions = {
     }
 }
 
-package_data = distributions[platform.system()][sys.version_info[1]]
+try:
+    os_distributions = distributions[platform.system()]
+except KeyError:
+    # don't use f-strings to prevent syntax error on older Python versions
+    sys.exit('Unrecognized platform: ' + platform.system())
+
+try:
+    if sys.version_info[0] != 3:
+        raise KeyError
+    package_data = os_distributions[sys.version_info[1]]
+except KeyError:
+    # don't use f-strings to prevent syntax error on older Python versions
+    sys.exit('Currently we only support Python 3.6 or 3.7, but you are using ' + sys.version)
 
 setup(
     name='nanogui',
+    python_requires='>=3.6, <3.8',
     version='1.1.0',
     description='Python bindings for the C++ GUI library nanogui.',
-    author='Vincent Moeykens',
-    author_email='vincent@beta.team',
-    packages=['',],
-    package_dir={'': 'bin',},
+    author='BETA Technologies',
+    author_email='info@beta.team',
+    packages=[''],
+    package_dir={'': 'bin'},
     package_data=package_data,
 )
 
