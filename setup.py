@@ -14,7 +14,7 @@ distributions = {
             '': ['nanogui.cp36-win_amd64.pyd', 'nanogui.dll']
         },
         7: {
-            '': ['nanogui.cp36-win_amd64.pyd', 'nanogui.dll']
+            '': ['nanogui.cp37-win_amd64.pyd', 'nanogui.dll']
         }
     },
     'Linux': {
