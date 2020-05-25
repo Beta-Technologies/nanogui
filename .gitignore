@@ -19,7 +19,6 @@ example[1-9]
 example_icons
 icons
 *~
-libnanogui.dylib
 .vscode/
 # html documentation specific
 *.pyc
