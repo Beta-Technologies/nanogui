@@ -46,7 +46,6 @@ if(APPLE AND NANOGUI_BUILD_SHARED)
 else()
   set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
   set(CMAKE_INSTALL_RPATH "$ORIGIN")
-
 endif()
 
 include(CheckCXXCompilerFlag)
