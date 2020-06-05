@@ -50,7 +50,7 @@ try:
     package_data = os_distributions[sys.version_info[1]]
 except KeyError:
     # don't use f-strings to prevent syntax error on older Python versions
-    sys.exit('Currently we only support Python 3.6 or 3.7, but you are using ' + sys.version)
+    sys.exit('Currently we only support Python 3.6, 3.7 or 3.8, but you are using ' + sys.version)
 
 setup(
     name='nanogui',
