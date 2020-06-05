@@ -9,6 +9,9 @@ distributions = {
         },
         7: {
             '': ['nanogui.cp37-win_amd64.pyd', 'nanogui.dll']
+        },
+        8: {
+            '': ['nanogui.cp38-win_amd64.pyd', 'nanogui.dll']
         }
     },
     'Linux': {
@@ -17,6 +20,9 @@ distributions = {
         },
         7: {
             '': ['nanogui.cpython-37m-x86_64-linux-gnu.so', 'libnanogui.so']
+        },
+        8: {
+            '': ['nanogui.cpython-38m-x86_64-linux-gnu.so', 'libnanogui.so']
         }
     },
     'Darwin': {
@@ -25,6 +31,9 @@ distributions = {
         },
         7: {
             '': ['nanogui.cpython-37m-darwin.so', 'libnanogui.dylib']
+        },
+        8: {
+            '': ['nanogui.cpython-38m-darwin.so', 'libnanogui.dylib']
         }
     }
 }
@@ -45,7 +54,7 @@ except KeyError:
 
 setup(
     name='nanogui',
-    python_requires='>=3.6, <3.8',
+    python_requires='>=3.6, <=3.8',
     version='1.1.0',
     description='Python bindings for the C++ GUI library nanogui.',
     author='BETA Technologies',
