@@ -98,7 +98,8 @@ void register_theme(py::module &m) {
          .def_readwrite("mPlotForegroundColor", &Theme::mPlotForegroundColor, D(Theme, mPlotForegroundColor))
          .def_readwrite("mPlotTextColor", &Theme::mPlotTextColor, D(Theme, mPlotTextColor))
          .def_readwrite("mPlotMajorTickColor", &Theme::mPlotMajorTickColor, D(Theme, mPlotMajorTickColor))
-         .def_readwrite("mPlotMinorTickColor", &Theme::mPlotMinorTickColor, D(Theme, mPlotMinorTickColor));
+         .def_readwrite("mPlotMinorTickColor", &Theme::mPlotMinorTickColor, D(Theme, mPlotMinorTickColor))
+         .def_readwrite("mUnitTextColor", &Theme::mUnitTextColor, D(Theme, mUnitTextColor));
 
     /* See declaration of global_default_fonts_proxy at the top of this file.
      *
