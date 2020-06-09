@@ -5341,6 +5341,9 @@ static const char *__doc_nanogui_Theme_mPlotMajorTickColor =
 static const char *__doc_nanogui_Theme_mPlotMinorTickColor =
         R"doc(The minor tick color for a Plot.)doc";
 
+static const char *__doc_nanogui_Theme_mUnitTextColor =
+        R"doc(The text color of units in a textbox.)doc";
+
 #if defined(__GNUG__)
 #pragma GCC diagnostic pop
 #endif

@@ -138,7 +138,7 @@ void TextBox::draw(NVGcontext* ctx) {
         unitWidth += 2;
     } else if (!mUnits.empty()) {
         unitWidth = nvgTextBounds(ctx, 0, 0, mUnits.c_str(), nullptr, nullptr);
-        nvgFillColor(ctx, Color(255, mEnabled ? 64 : 32));
+        nvgFillColor(ctx, mTheme->mUnitTextColor);
         nvgTextAlign(ctx, NVG_ALIGN_RIGHT | NVG_ALIGN_MIDDLE);
         nvgText(ctx, mPos.x() + mSize.x() - xSpacing, drawPos.y(),
                 mUnits.c_str(), nullptr);
