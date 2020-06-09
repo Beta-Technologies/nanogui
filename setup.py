@@ -22,7 +22,7 @@ distributions = {
             '': ['nanogui.cpython-37m-x86_64-linux-gnu.so', 'libnanogui.so']
         },
         8: {
-            '': ['nanogui.cpython-38m-x86_64-linux-gnu.so', 'libnanogui.so']
+            '': ['nanogui.cpython-38-x86_64-linux-gnu.so', 'libnanogui.so']
         }
     },
     'Darwin': {
