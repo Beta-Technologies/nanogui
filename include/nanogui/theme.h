@@ -191,6 +191,11 @@ public:
      */
     Color mTextColor;
     /**
+     * The unit text color for text boxes
+     * (default: intensity=``255``, alpha=``64``; see \ref nanogui::Color::Color(int,int)).
+     */
+    Color mUnitTextColor;
+    /**
      * The disable dtext color
      * (default: intensity=``255``, alpha=``80``; see \ref nanogui::Color::Color(int,int)).
      */
