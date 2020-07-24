@@ -5,10 +5,10 @@ import platform
 distributions = {
     'Windows': {
         6: {
-            '': ['nanogui.cp36-win_amd64.pyd', 'nanogui.dll']
+            '': ['nanogui.cp36-win_amd64.pyd', 'nanogui.dll', 'vcruntime140_1.dll']
         },
         7: {
-            '': ['nanogui.cp37-win_amd64.pyd', 'nanogui.dll']
+            '': ['nanogui.cp37-win_amd64.pyd', 'nanogui.dll', 'vcruntime140_1.dll']
         }
     },
     'Linux': {
