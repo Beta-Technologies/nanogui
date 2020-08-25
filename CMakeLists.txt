@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 2.8.12)
+cmake_minimum_required (VERSION 3.12.0)
 
 if (POLICY CMP0048)
   # cmake warns if loaded from a min-3.0-required parent dir, so silence the warning:
@@ -29,7 +29,7 @@ option(NANOGUI_BUILD_PYTHON  "Build a Python plugin for NanoGUI?" ON)
 option(NANOGUI_USE_GLAD      "Use Glad OpenGL loader library?" ${NANOGUI_USE_GLAD_DEFAULT})
 option(NANOGUI_INSTALL       "Install NanoGUI on `make install`?" ON)
 
-set(NANOGUI_PYTHON_VERSION "" CACHE STRING "Python version to use for compiling the Python plugin")
+set(NANOGUI_PYTHON_VERSION "3.7" CACHE STRING "Python version to use for compiling the Python plugin")
 
 # Required libraries, flags, and include files for compiling and linking against nanogui (all targets)
 set(NANOGUI_EXTRA_LIBS "")
@@ -40,13 +40,13 @@ set(NANOGUI_EXTRA_INCS "")
 set(LIBNANOGUI_EXTRA_SOURCE "")
 set(LIBNANOGUI_PYTHON_EXTRA_SOURCE "")
 
-set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
-
-set(CMAKE_INSTALL_RPATH "$ORIGIN")
-
 if(APPLE AND NANOGUI_BUILD_SHARED)
   set(CMAKE_MACOSX_RPATH ON)
+  set(CMAKE_INSTALL_RPATH "@loader_path")
+else()
+  set(CMAKE_INSTALL_RPATH "$ORIGIN")
 endif()
+set(CMAKE_BUILD_WITH_INSTALL_RPATH ON)
 
 include(CheckCXXCompilerFlag)
 include(CheckCXXSourceRuns)
@@ -458,7 +458,7 @@ if (NANOGUI_BUILD_PYTHON)
 
   # Try to autodetect Python (can be overridden manually if needed)
   list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/ext/pybind11/tools")
-  set(Python_ADDITIONAL_VERSIONS 3.8 3.7 3.6 3.5 3.4)
+  find_package(Python ${NANOGUI_PYTHON_VERSION} EXACT REQUIRED)
   find_package(PythonLibsNew ${NANOGUI_PYTHON_VERSION})
   if (NOT PYTHONLIBS_FOUND)
     # Python not found -- disable the plugin
