@@ -2,6 +2,13 @@ from setuptools import setup
 import sys
 import platform
 
+
+class PyVersionException(Exception):
+    """Exception for platform and python version errors"""
+    def __init__(self, message="Your platform and Python Version combination is not supported"):
+        self.message = message
+        super().__init__(self.message)
+
 distributions = {
     'Windows': {
         6: {
@@ -44,9 +51,12 @@ except KeyError:
     # don't use f-strings to prevent syntax error on older Python versions
     sys.exit('Unrecognized platform: ' + platform.system())
 
+if platform.system() == 'Darwin' and sys.version_info[0] == 3 and sys.version_info[1] == 8:
+    raise
+
 try:
     if sys.version_info[0] != 3:
-        raise KeyError
+        raise PyVersionException
     package_data = os_distributions[sys.version_info[1]]
 except KeyError:
     # don't use f-strings to prevent syntax error on older Python versions
@@ -63,4 +73,3 @@ setup(
     package_dir={'': 'bin'},
     package_data=package_data,
 )
-

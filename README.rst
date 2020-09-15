@@ -16,9 +16,6 @@ NanoGUI
 
 .. begin_brief_description
 
-This fork contains customized GUI widgets and extensions for Beta Technologies.
-Contact Jeff Sprenger for info on how to use NanoGUI and Python on our Beta projecs.
-
 NanoGUI is a minimalistic cross-platform widget library for OpenGL 3.x or higher. It
 supports automatic layout generation, stateful C++11 lambdas callbacks, a variety of
 useful widget types and Retina-capable rendering on Apple devices thanks to NanoVG_ by
@@ -199,6 +196,11 @@ To also get the Python bindings, you'll need to run
 .. code-block:: bash
 
    $ sudo dnf install python3-devel
+
+Known Issues
+----------------------------------------------------------------------------------------
+
+- There are no nanogui binaries for Python 3.8 on Mac
 
 License
 ----------------------------------------------------------------------------------------
