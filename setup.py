@@ -64,7 +64,7 @@ except KeyError:
 
 setup(
     name='nanogui',
-    python_requires='>=3.6, <=3.8.2',
+    python_requires='>=3.6, <3.9',
     version='1.1.0',
     description='Python bindings for the C++ GUI library nanogui.',
     author='BETA Technologies',
