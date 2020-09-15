@@ -52,11 +52,11 @@ except KeyError:
     sys.exit('Unrecognized platform: ' + platform.system())
 
 if platform.system() == 'Darwin' and sys.version_info[0] == 3 and sys.version_info[1] == 8:
-    raise
+    raise PyVersionException
 
 try:
     if sys.version_info[0] != 3:
-        raise PyVersionException
+        raise KeyError
     package_data = os_distributions[sys.version_info[1]]
 except KeyError:
     # don't use f-strings to prevent syntax error on older Python versions
